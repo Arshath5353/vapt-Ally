@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VAPT Ally - Application Security</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #090a0f; --bg2: #12141d; --bg3: #181b26; --surface: #1e212b;
+            --border: #2a2d39; --border2: #3a3f50; --accent: #00e5ff;
+            --accent-dim: rgba(0, 229, 255, 0.1); --red: #ff4d4d; --orange: #ff9e43;
+            --yellow: #fadb14; --green: #00e676; --text: #e2e8f0;
+            --text2: #94a3b8; --text3: #64748b;
+            --font-mono: 'JetBrains Mono', monospace; --font-display: 'Syne', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-mono); min-height: 100vh; overflow-x: hidden;
+        }
+
+        body::before {
+            content: ''; position: fixed; top: -20%; left: 50%; transform: translateX(-50%);
+            width: 60vw; height: 60vh; background: radial-gradient(circle, var(--accent-dim) 0%, transparent 70%);
+            pointer-events: none; z-index: 0; filter: blur(60px);
+        }
+
+        .page-wrap { position: relative; z-index: 1; min-height: 100vh; display: flex; flex-direction: column; }
+
+        nav {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 20px 48px; border-bottom: 1px solid var(--border);
+            background: rgba(9, 10, 15, 0.6); backdrop-filter: blur(20px);
+        }
+
+        .nav-brand { font-family: var(--font-display); font-weight: 700; color: #fff; }
+        .nav-brand .icon { color: var(--accent); }
+        .nav-status { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text2); }
+        .nav-status .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px var(--green); }
+
+        .hero { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 100px 24px 80px; text-align: center; }
+        .hero-title { font-family: var(--font-display); font-size: clamp(36px, 5vw, 56px); font-weight: 800; line-height: 1.1; color: #fff; margin-bottom: 20px; }
+        .hero-title span { color: var(--accent); }
+        .hero-sub { font-size: 14px; color: var(--text2); max-width: 480px; line-height: 1.6; margin-bottom: 56px; }
+
+        .scan-card { width: 100%; max-width: 680px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .scan-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text2); margin-bottom: 12px; display: block; text-align: left; }
+
+        .input-row { display: flex; gap: 12px; align-items: stretch; }
+        .input-wrapper { flex: 1; position: relative; }
+        .input-prefix { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); font-size: 14px; color: var(--text3); }
+        .scan-input { width: 100%; background: var(--bg2); border: 1px solid var(--border2); border-radius: 8px; padding: 16px 16px 16px 85px; font-family: var(--font-mono); font-size: 14px; color: var(--text); outline: none; }
+        .scan-input:focus { border-color: var(--accent); background: var(--bg); }
+        .scan-btn { background: var(--text); color: var(--bg); border: none; border-radius: 8px; padding: 0 32px; font-family: var(--font-display); font-weight: 700; cursor: pointer; transition: 0.2s; }
+        .scan-btn:hover { background: var(--accent); transform: translateY(-2px); }
+
+        #loading { display: none; margin-top: 32px; text-align: left; }
+        .loading-text { font-size: 13px; color: var(--accent); margin-bottom: 16px; font-weight: 500; }
+        .progress-bar { width: 100%; height: 4px; background: var(--border); border-radius: 4px; overflow: hidden; }
+        .progress-fill { width: 40%; height: 100%; background: var(--accent); animation: load 2s infinite ease-in-out alternate; }
+        @keyframes load { 0% { width: 10%; } 100% { width: 90%; } }
+
+        .error-banner { background: rgba(255, 77, 77, 0.1); border: 1px solid var(--red); color: var(--red); padding: 16px; border-radius: 8px; margin-top: 24px; font-size: 13px; text-align: left; display: none; }
+
+        .history-section { max-width: 1000px; margin: 0 auto; width: 100%; padding: 0 24px 100px; }
+        .history-header { border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 24px; }
+        .history-title { font-family: var(--font-display); font-size: 20px; color: #fff; font-weight: 600; }
+        .history-table { width: 100%; border-collapse: collapse; text-align: left; }
+        .history-table th { font-size: 11px; text-transform: uppercase; color: var(--text3); padding: 16px; border-bottom: 1px solid var(--border); }
+        .history-table td { padding: 16px; font-size: 13px; border-bottom: 1px solid var(--border); }
+        .history-table tr:hover td { background: var(--surface); }
+        .target-cell { color: var(--accent); font-weight: 500; }
+        .action-link { color: var(--text); text-decoration: none; border: 1px solid var(--border2); padding: 6px 12px; border-radius: 6px; transition: 0.2s; }
+        .action-link:hover { border-color: var(--accent); color: var(--accent); }
+
+        .risk-badge { padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: 600; display: inline-block; text-transform: capitalize; }
+        .risk-badge.critical { color: var(--red); background: rgba(255, 77, 77, 0.1); }
+        .risk-badge.high { color: var(--orange); background: rgba(255, 158, 67, 0.1); }
+        .risk-badge.medium { color: var(--yellow); background: rgba(250, 219, 20, 0.1); }
+        .risk-badge.low { color: var(--green); background: rgba(0, 230, 118, 0.1); }
+        .risk-badge.error { color: #fff; background: rgba(255, 255, 255, 0.1); }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+    <nav>
+        <div class="nav-brand"><span class="icon">⬡</span> VAPT Ally</div>
+        <div class="nav-status"><div class="dot"></div> Engine Online</div>
+    </nav>
+
+    <section class="hero">
+        <h1 class="hero-title">Discover vulnerabilities.<br><span>Before adversaries do.</span></h1>
+        <p class="hero-sub">Enterprise-grade reconnaissance, automated crawling, and vulnerability assessment for modern web infrastructure.</p>
+
+        <div class="scan-card">
+            <span class="scan-label">Target Infrastructure</span>
+            <form id="scanForm">
+                <div class="input-row">
+                    <div class="input-wrapper">
+                        <span class="input-prefix">http://</span>
+                        <input class="scan-input" type="text" name="url" id="urlInput" placeholder="target-domain.com" required autocomplete="off" spellcheck="false">
+                    </div>
+                    <button class="scan-btn" type="submit" id="scanBtn">Initiate Scan</button>
+                </div>
+            </form>
+
+            <div id="loading">
+                <div class="loading-text">Analyzing target surface area... (This may take several minutes)</div>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+            </div>
+
+            <div id="errorBox" class="error-banner"></div>
+        </div>
+    </section>
+
+    <section class="history-section">
+        <div class="history-header">
+            <h2 class="history-title">Assessment Intelligence</h2>
+        </div>
+        {% if history %}
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>Target</th>
+                    <th>Timestamp</th>
+                    <th>Risk Posture</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for scan in history %}
+                <tr>
+                    <td class="target-cell">{{ scan.target }}</td>
+                    <td style="color: var(--text2);">{{ scan.timestamp }}</td>
+                    <td><span class="risk-badge {{ scan.risk.level.lower() }}">{{ scan.risk.level }} ({{ scan.risk.score }})</span></td>
+                    <td><a class="action-link" href="/report/{{ scan.id }}">View Report</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div style="text-align: center; color: var(--text3); padding: 40px 0; font-size: 13px;">
+            No historical data. Initiate a scan to populate intelligence records.
+        </div>
+        {% endif %}
+    </section>
+</div>
+
+<script>
+    const urlInput = document.getElementById('urlInput');
+
+    // Instantly strips protocols so the user sees a clean domain in the box
+    urlInput.addEventListener('input', function() {
+        let val = this.value;
+        if (val.includes('://')) {
+            const parts = val.split('://');
+            this.value = parts[parts.length - 1];
+        }
+    });
+
+    // Handle form asynchronously to prevent browser freeze/timeout behavior
+    const form = document.getElementById('scanForm');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); 
+        
+        document.getElementById('scanBtn').style.display = 'none';
+        document.getElementById('loading').style.display = 'block';
+        document.getElementById('errorBox').style.display = 'none';
+
+        fetch('/scan', {
+            method: 'POST',
+            body: new FormData(form)
+        })
+        .then(response => {
+            if (!response.ok) {
+                return response.text().then(text => { throw new Error(text || `HTTP error ${response.status}`); });
+            }
+            return response.text();
+        })
+        .then(html => {
+            // Replace current page with the rendered dashboard html from Flask
+            document.open();
+            document.write(html);
+            document.close();
+        })
+        .catch(err => {
+            // If the connection drops or the server errors out
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('scanBtn').style.display = 'block';
+            
+            const errorBox = document.getElementById('errorBox');
+            errorBox.innerHTML = `<strong>Scan Connection Failed:</strong> ${err.message}<br><br><span style="color:var(--text2)">Note: If your scan took a long time and failed, your Python crawler module likely timed out trying to map a massive site. Consider adding connection timeouts (e.g., <code>timeout=10</code>) to the <code>requests.get()</code> calls inside your modules.</span>`;
+            errorBox.style.display = 'block';
+        });
+    });
+</script>
+</body>
+</html>

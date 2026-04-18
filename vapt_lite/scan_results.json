@@ -1,0 +1,1661 @@
+[
+    {
+        "timestamp": "2026-04-15 22:48:57",
+        "target": "https://www.srmonline.in/lp/srm-online-mba.html?&utm_source=search&utm_medium=g_c_9061892__&utm_campaign=brand-broad-tn-ser-ctw-pr-srm_mba&campaign_id=20469497515&adgroup_id=153572577498&ad_id=670183001911&utm_target=kwd-2969236611&Keyword=srm%20university&placement=&gad_source=1&gad_campaignid=20469497515&gbraid=0AAAAADMIA33CPg0o7JD8Od_19ksvKpy5c&gclid=CjwKCAjw7vzOBhBxEiwAc7WNr8iAB3Q7AlYFwxDlu19Nie4r2XNGW-02QNfJvWBpawhG4NzlLMwaAxoCkFMQAvD_BwE",
+        "recon": {
+            "ip": "18.61.142.101",
+            "headers": {
+                "Date": "Wed, 15 Apr 2026 17:18:55 GMT",
+                "Server": "Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips PHP/8.0.30",
+                "Last-Modified": "Thu, 11 Jul 2024 07:26:09 GMT",
+                "ETag": "\"685-61cf3ad43cedb-gzip\"",
+                "Accept-Ranges": "bytes",
+                "Vary": "Accept-Encoding",
+                "Content-Encoding": "gzip",
+                "Cache-Control": "max-age=0",
+                "Expires": "Wed, 15 Apr 2026 17:18:55 GMT",
+                "Content-Length": "929",
+                "Keep-Alive": "timeout=5, max=100",
+                "Connection": "Keep-Alive",
+                "Content-Type": "text/html; charset=UTF-8"
+            }
+        },
+        "crawler": {
+            "internal": [],
+            "external": []
+        },
+        "vulnerabilities": [
+            {
+                "type": "Missing Header",
+                "detail": "Missing Strict-Transport-Security",
+                "severity": "High"
+            },
+            {
+                "type": "Missing Header",
+                "detail": "Missing Content-Security-Policy",
+                "severity": "Medium"
+            },
+            {
+                "type": "Missing Header",
+                "detail": "Missing X-Frame-Options",
+                "severity": "Low"
+            }
+        ],
+        "risk": {
+            "score": 40,
+            "level": "High",
+            "counts": {
+                "Critical": 0,
+                "High": 1,
+                "Medium": 1,
+                "Low": 1,
+                "Info": 0
+            }
+        }
+    },
+    {
+        "timestamp": "2026-04-15 23:34:17",
+        "target": "https://www.srmonline.in/lp/srm-online-mba.html?&utm_source=search&utm_medium=g_c_9061892__&utm_campaign=brand-broad-tn-ser-ctw-pr-srm_mba&campaign_id=20469497515&adgroup_id=153572577498&ad_id=670183001911&utm_target=kwd-2969236611&Keyword=srm%20university&placement=&gad_source=1&gad_campaignid=20469497515&gbraid=0AAAAADMIA33CPg0o7JD8Od_19ksvKpy5c&gclid=CjwKCAjw7vzOBhBxEiwAc7WNr8iAB3Q7AlYFwxDlu19Nie4r2XNGW-02QNfJvWBpawhG4NzlLMwaAxoCkFMQAvD_BwE",
+        "recon": {
+            "ip": "18.61.142.101",
+            "headers": {
+                "Date": "Wed, 15 Apr 2026 18:04:12 GMT",
+                "Server": "Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips PHP/8.0.30",
+                "Last-Modified": "Thu, 11 Jul 2024 07:26:09 GMT",
+                "ETag": "\"685-61cf3ad43cedb-gzip\"",
+                "Accept-Ranges": "bytes",
+                "Vary": "Accept-Encoding",
+                "Content-Encoding": "gzip",
+                "Cache-Control": "max-age=0",
+                "Expires": "Wed, 15 Apr 2026 18:04:12 GMT",
+                "Content-Length": "929",
+                "Keep-Alive": "timeout=5, max=100",
+                "Connection": "Keep-Alive",
+                "Content-Type": "text/html; charset=UTF-8"
+            },
+            "shodan": {
+                "error": "Shodan Error: Access denied (403 Forbidden)"
+            }
+        },
+        "crawler": {
+            "internal": [],
+            "external": []
+        },
+        "vulnerabilities": [
+            {
+                "type": "Open Port Discovered",
+                "detail": "Port 80 (http) is open.",
+                "severity": "Medium"
+            },
+            {
+                "type": "Open Port Discovered",
+                "detail": "Port 443 (https) is open.",
+                "severity": "Medium"
+            },
+            {
+                "type": "Missing Header",
+                "detail": "Missing Strict-Transport-Security",
+                "severity": "High"
+            }
+        ],
+        "risk": {
+            "score": 45,
+            "level": "High",
+            "counts": {
+                "Critical": 0,
+                "High": 1,
+                "Medium": 2,
+                "Low": 0,
+                "Info": 0
+            }
+        }
+    },
+    {
+        "timestamp": "2026-04-15 23:34:54",
+        "target": "https://www.srmonline.in/lp/srm-online-mba.html?&utm_source=search&utm_medium=g_c_9061892__&utm_campaign=brand-broad-tn-ser-ctw-pr-srm_mba&campaign_id=20469497515&adgroup_id=153572577498&ad_id=670183001911&utm_target=kwd-2969236611&Keyword=srm%20university&placement=&gad_source=1&gad_campaignid=20469497515&gbraid=0AAAAADMIA33CPg0o7JD8Od_19ksvKpy5c&gclid=CjwKCAjw7vzOBhBxEiwAc7WNr8iAB3Q7AlYFwxDlu19Nie4r2XNGW-02QNfJvWBpawhG4NzlLMwaAxoCkFMQAvD_BwE",
+        "recon": {
+            "ip": "18.61.142.101",
+            "headers": {
+                "Date": "Wed, 15 Apr 2026 18:04:50 GMT",
+                "Server": "Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips PHP/8.0.30",
+                "Last-Modified": "Thu, 11 Jul 2024 07:26:09 GMT",
+                "ETag": "\"685-61cf3ad43cedb-gzip\"",
+                "Accept-Ranges": "bytes",
+                "Vary": "Accept-Encoding",
+                "Content-Encoding": "gzip",
+                "Cache-Control": "max-age=0",
+                "Expires": "Wed, 15 Apr 2026 18:04:50 GMT",
+                "Content-Length": "929",
+                "Keep-Alive": "timeout=5, max=100",
+                "Connection": "Keep-Alive",
+                "Content-Type": "text/html; charset=UTF-8"
+            },
+            "shodan": {
+                "error": "Shodan Error: Access denied (403 Forbidden)"
+            }
+        },
+        "crawler": {
+            "internal": [],
+            "external": []
+        },
+        "vulnerabilities": [
+            {
+                "type": "Open Port Discovered",
+                "detail": "Port 80 (http) is open.",
+                "severity": "Medium"
+            },
+            {
+                "type": "Open Port Discovered",
+                "detail": "Port 443 (https) is open.",
+                "severity": "Medium"
+            },
+            {
+                "type": "Missing Header",
+                "detail": "Missing Strict-Transport-Security",
+                "severity": "High"
+            }
+        ],
+        "risk": {
+            "score": 45,
+            "level": "High",
+            "counts": {
+                "Critical": 0,
+                "High": 1,
+                "Medium": 2,
+                "Low": 0,
+                "Info": 0
+            }
+        }
+    },
+    {
+        "timestamp": "2026-04-15 23:44:26",
+        "target": "https://www.srmonline.in/lp/srm-online-mba.html?&utm_source=search&utm_medium=g_c_9061892__&utm_campaign=brand-broad-tn-ser-ctw-pr-srm_mba&campaign_id=20469497515&adgroup_id=153572577498&ad_id=670183001911&utm_target=kwd-2969236611&Keyword=srm%20university&placement=&gad_source=1&gad_campaignid=20469497515&gbraid=0AAAAADMIA33CPg0o7JD8Od_19ksvKpy5c&gclid=CjwKCAjw7vzOBhBxEiwAc7WNr8iAB3Q7AlYFwxDlu19Nie4r2XNGW-02QNfJvWBpawhG4NzlLMwaAxoCkFMQAvD_BwE",
+        "recon": {
+            "ip": "18.61.142.101",
+            "headers": {
+                "Date": "Wed, 15 Apr 2026 18:14:21 GMT",
+                "Server": "Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips PHP/8.0.30",
+                "Last-Modified": "Thu, 11 Jul 2024 07:26:09 GMT",
+                "ETag": "\"685-61cf3ad43cedb-gzip\"",
+                "Accept-Ranges": "bytes",
+                "Vary": "Accept-Encoding",
+                "Content-Encoding": "gzip",
+                "Cache-Control": "max-age=0",
+                "Expires": "Wed, 15 Apr 2026 18:14:21 GMT",
+                "Content-Length": "929",
+                "Keep-Alive": "timeout=5, max=100",
+                "Connection": "Keep-Alive",
+                "Content-Type": "text/html; charset=UTF-8"
+            },
+            "shodan": {
+                "error": "Shodan Error: Access denied (403 Forbidden)"
+            },
+            "tech_stack": {
+                "web-servers": [
+                    "Apache"
+                ],
+                "web-server-extensions": [
+                    "OpenSSL"
+                ]
+            }
+        },
+        "crawler": {
+            "internal": [],
+            "external": [],
+            "forms": [],
+            "error": "name 'requests' is not defined"
+        },
+        "vulnerabilities": [
+            {
+                "type": "Open Port Discovered",
+                "detail": "Port 80 (http) is open.",
+                "severity": "Medium"
+            },
+            {
+                "type": "Open Port Discovered",
+                "detail": "Port 443 (https) is open.",
+                "severity": "Medium"
+            },
+            {
+                "type": "Missing Header",
+                "detail": "Missing Strict-Transport-Security",
+                "severity": "High"
+            },
+            {
+                "type": "Exposed Sensitive File/Directory",
+                "detail": "Found accessible path: /admin",
+                "severity": "Medium"
+            },
+            {
+                "type": "Exposed Sensitive File/Directory",
+                "detail": "Found accessible path: /.git/config",
+                "severity": "High"
+            },
+            {
+                "type": "Exposed Sensitive File/Directory",
+                "detail": "Found accessible path: /backup.zip",
+                "severity": "High"
+            },
+            {
+                "type": "Exposed Sensitive File/Directory",
+                "detail": "Found accessible path: /robots.txt",
+                "severity": "Medium"
+            },
+            {
+                "type": "Exposed Sensitive File/Directory",
+                "detail": "Found accessible path: /phpinfo.php",
+                "severity": "Medium"
+            }
+        ],
+        "risk": {
+            "score": 100,
+            "level": "Critical",
+            "counts": {
+                "Critical": 0,
+                "High": 3,
+                "Medium": 5,
+                "Low": 0,
+                "Info": 0
+            }
+        }
+    },
+    {
+        "timestamp": "2026-04-15 23:45:57",
+        "target": "https://owasp.org/www-project-juice-shop/",
+        "recon": {
+            "ip": "172.66.157.115",
+            "headers": {
+                "Date": "Wed, 15 Apr 2026 18:15:37 GMT",
+                "Content-Type": "text/html; charset=utf-8",
+                "Connection": "keep-alive",
+                "CF-Ray": "9eccefca1a0929ad-FRA",
+                "CF-Cache-Status": "DYNAMIC",
+                "Access-Control-Allow-Origin": "*",
+                "Age": "0",
+                "Cache-Control": "max-age=600",
+                "Expires": "Wed, 15 Apr 2026 16:10:01 GMT",
+                "Last-Modified": "Fri, 27 Mar 2026 23:50:10 GMT",
+                "Server": "cloudflare",
+                "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+                "Vary": "Accept-Encoding",
+                "Via": "1.1 varnish",
+                "Content-Security-Policy": "default-src 'self' https://*.fontawesome.com https://api.github.com https://*.githubusercontent.com https://*.google-analytics.com https://owaspadmin.azurewebsites.net https://*.twimg.com https://platform.twitter.com https://www.youtube.com https://*.doubleclick.net; frame-ancestors 'self'; frame-src https://*.vuejs.org https://*.stripe.com https://*.wufoo.com https://*.sched.com https://*.google.com https://*.twitter.com https://www.youtube.com https://w.soundcloud.com https://buttons.github.io; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://viewer.diagrams.net https://fonts.googleapis.com https://*.fontawesome.com https://app.diagrams.net https://cdnjs.cloudflare.com https://cse.google.com https://*.vuejs.org https://*.stripe.com https://*.wufoo.com https://*.youtube.com https://*.meetup.com https://*.sched.com https://*.google-analytics.com https://unpkg.com https://buttons.github.io https://www.google.com https://*.gstatic.com https://*.twitter.com https://*.twimg.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://*.gstatic.com https://cdnjs.cloudflare.com https://www.google.com https://fonts.googleapis.com https://platform.twitter.com https://*.twimg.com data:; font-src 'self' https://*.fontawesome.com fonts.gstatic.com; manifest-src 'self' https://pay.google.com; img-src 'self' https://*.globalappsec.org https://render.com https://*.render.com https://okteto.com https://*.okteto.com data: www.w3.org https://*.bestpractices.dev https://licensebuttons.net https://img.shields.io https://*.twitter.com https://github.githubassets.com https://*.twimg.com https://platform.twitter.com https://*.githubusercontent.com https://*.vercel.app https://*.cloudfront.net https://*.coreinfrastructure.org https://*.securityknowledgeframework.org https://badges.gitter.im https://travis-ci.org https://api.travis-ci.org https://s3.amazonaws.com https://snyk.io https://coveralls.io https://requires.io https://github.com https://*.googleapis.com https://*.google.com https://*.gstatic.com https://static.scarf.sh",
+                "Permissions-Policy": "geolocation=(self)",
+                "Referrer-Policy": "same-origin",
+                "X-Content-Type-Options": "nosniff",
+                "X-Frame-Options": "SAMEORIGIN",
+                "x-cache": "HIT",
+                "x-cache-hits": "0",
+                "x-fastly-request-id": "2c527107d9b0ce55aaa9251dd3d7b3fe6c130a1e",
+                "x-github-request-id": "DE0C:6890D:F6AD65:F82399:69DFB601",
+                "x-proxy-cache": "MISS",
+                "x-served-by": "cache-fra-eddf8230078-FRA",
+                "x-timer": "S1776276937.308476,VS0,VE101",
+                "Content-Encoding": "gzip"
+            },
+            "shodan": {
+                "error": "Shodan Error: Access denied (403 Forbidden)"
+            },
+            "tech_stack": {
+                "cdn": [
+                    "CloudFlare"
+                ],
+                "javascript-frameworks": [
+                    "jQuery"
+                ]
+            }
+        },
+        "crawler": {
+            "internal": [],
+            "external": [],
+            "forms": [],
+            "error": "name 'requests' is not defined"
+        },
+        "vulnerabilities": [
+            {
+                "type": "Open Port Discovered",
+                "detail": "Port 80 (http) is open.",
+                "severity": "Medium"
+            },
+            {
+                "type": "Open Port Discovered",
+                "detail": "Port 443 (https) is open.",
+                "severity": "Medium"
+            },
+            {
+                "type": "Open Port Discovered",
+                "detail": "Port 8080 (http-proxy) is open.",
+                "severity": "Medium"
+            },
+            {
+                "type": "Open Port Discovered",
+                "detail": "Port 8443 (https-alt) is open.",
+                "severity": "Medium"
+            }
+        ],
+        "risk": {
+            "score": 40,
+            "level": "High",
+            "counts": {
+                "Critical": 0,
+                "High": 0,
+                "Medium": 4,
+                "Low": 0,
+                "Info": 0
+            }
+        }
+    },
+    {
+        "timestamp": "2026-04-15 23:46:05",
+        "target": "https://owasp.org/www-project-juice-shop/",
+        "recon": {
+            "ip": "104.20.44.163",
+            "headers": {
+                "Date": "Wed, 15 Apr 2026 18:15:46 GMT",
+                "Content-Type": "text/html; charset=utf-8",
+                "Connection": "keep-alive",
+                "CF-Ray": "9eccf0013bae3736-FRA",
+                "CF-Cache-Status": "DYNAMIC",
+                "Access-Control-Allow-Origin": "*",
+                "Age": "9",
+                "Cache-Control": "max-age=600",
+                "Expires": "Wed, 15 Apr 2026 16:10:01 GMT",
+                "Last-Modified": "Fri, 27 Mar 2026 23:50:10 GMT",
+                "Server": "cloudflare",
+                "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+                "Vary": "Accept-Encoding",
+                "Via": "1.1 varnish",
+                "Content-Security-Policy": "default-src 'self' https://*.fontawesome.com https://api.github.com https://*.githubusercontent.com https://*.google-analytics.com https://owaspadmin.azurewebsites.net https://*.twimg.com https://platform.twitter.com https://www.youtube.com https://*.doubleclick.net; frame-ancestors 'self'; frame-src https://*.vuejs.org https://*.stripe.com https://*.wufoo.com https://*.sched.com https://*.google.com https://*.twitter.com https://www.youtube.com https://w.soundcloud.com https://buttons.github.io; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://viewer.diagrams.net https://fonts.googleapis.com https://*.fontawesome.com https://app.diagrams.net https://cdnjs.cloudflare.com https://cse.google.com https://*.vuejs.org https://*.stripe.com https://*.wufoo.com https://*.youtube.com https://*.meetup.com https://*.sched.com https://*.google-analytics.com https://unpkg.com https://buttons.github.io https://www.google.com https://*.gstatic.com https://*.twitter.com https://*.twimg.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://*.gstatic.com https://cdnjs.cloudflare.com https://www.google.com https://fonts.googleapis.com https://platform.twitter.com https://*.twimg.com data:; font-src 'self' https://*.fontawesome.com fonts.gstatic.com; manifest-src 'self' https://pay.google.com; img-src 'self' https://*.globalappsec.org https://render.com https://*.render.com https://okteto.com https://*.okteto.com data: www.w3.org https://*.bestpractices.dev https://licensebuttons.net https://img.shields.io https://*.twitter.com https://github.githubassets.com https://*.twimg.com https://platform.twitter.com https://*.githubusercontent.com https://*.vercel.app https://*.cloudfront.net https://*.coreinfrastructure.org https://*.securityknowledgeframework.org https://badges.gitter.im https://travis-ci.org https://api.travis-ci.org https://s3.amazonaws.com https://snyk.io https://coveralls.io https://requires.io https://github.com https://*.googleapis.com https://*.google.com https://*.gstatic.com https://static.scarf.sh",
+                "Permissions-Policy": "geolocation=(self)",
+                "Referrer-Policy": "same-origin",
+                "X-Content-Type-Options": "nosniff",
+                "X-Frame-Options": "SAMEORIGIN",
+                "x-cache": "HIT",
+                "x-cache-hits": "1",
+                "x-fastly-request-id": "ed078bd14c3ba6e140bb5e2ea9896955c8e1486f",
+                "x-github-request-id": "DE0C:6890D:F6AD65:F82399:69DFB601",
+                "x-proxy-cache": "MISS",
+                "x-served-by": "cache-fra-eddf8230090-FRA",
+                "x-timer": "S1776276946.138469,VS0,VE2",
+                "Content-Encoding": "gzip"
+            },
+            "shodan": {
+                "error": "Shodan Error: Access denied (403 Forbidden)"
+            },
+            "tech_stack": {
+                "cdn": [
+                    "CloudFlare"
+                ],
+                "javascript-frameworks": [
+                    "jQuery"
+                ]
+            }
+        },
+        "crawler": {
+            "internal": [],
+            "external": [],
+            "forms": [],
+            "error": "name 'requests' is not defined"
+        },
+        "vulnerabilities": [
+            {
+                "type": "Open Port Discovered",
+                "detail": "Port 80 (http) is open.",
+                "severity": "Medium"
+            },
+            {
+                "type": "Open Port Discovered",
+                "detail": "Port 443 (https) is open.",
+                "severity": "Medium"
+            },
+            {
+                "type": "Open Port Discovered",
+                "detail": "Port 8080 (http-proxy) is open.",
+                "severity": "Medium"
+            },
+            {
+                "type": "Open Port Discovered",
+                "detail": "Port 8443 (https-alt) is open.",
+                "severity": "Medium"
+            }
+        ],
+        "risk": {
+            "score": 40,
+            "level": "High",
+            "counts": {
+                "Critical": 0,
+                "High": 0,
+                "Medium": 4,
+                "Low": 0,
+                "Info": 0
+            }
+        }
+    },
+    {
+        "timestamp": "2026-04-15 23:46:10",
+        "target": "https://owasp.org/www-project-juice-shop/",
+        "recon": {
+            "ip": "172.66.157.115",
+            "headers": {
+                "Date": "Wed, 15 Apr 2026 18:15:54 GMT",
+                "Content-Type": "text/html; charset=utf-8",
+                "Connection": "keep-alive",
+                "CF-Ray": "9eccf035d9d51a7d-FRA",
+                "CF-Cache-Status": "DYNAMIC",
+                "Access-Control-Allow-Origin": "*",
+                "Age": "17",
+                "Cache-Control": "max-age=600",
+                "Expires": "Wed, 15 Apr 2026 16:10:01 GMT",
+                "Last-Modified": "Fri, 27 Mar 2026 23:50:10 GMT",
+                "Server": "cloudflare",
+                "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+                "Vary": "Accept-Encoding",
+                "Via": "1.1 varnish",
+                "Content-Security-Policy": "default-src 'self' https://*.fontawesome.com https://api.github.com https://*.githubusercontent.com https://*.google-analytics.com https://owaspadmin.azurewebsites.net https://*.twimg.com https://platform.twitter.com https://www.youtube.com https://*.doubleclick.net; frame-ancestors 'self'; frame-src https://*.vuejs.org https://*.stripe.com https://*.wufoo.com https://*.sched.com https://*.google.com https://*.twitter.com https://www.youtube.com https://w.soundcloud.com https://buttons.github.io; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://viewer.diagrams.net https://fonts.googleapis.com https://*.fontawesome.com https://app.diagrams.net https://cdnjs.cloudflare.com https://cse.google.com https://*.vuejs.org https://*.stripe.com https://*.wufoo.com https://*.youtube.com https://*.meetup.com https://*.sched.com https://*.google-analytics.com https://unpkg.com https://buttons.github.io https://www.google.com https://*.gstatic.com https://*.twitter.com https://*.twimg.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://*.gstatic.com https://cdnjs.cloudflare.com https://www.google.com https://fonts.googleapis.com https://platform.twitter.com https://*.twimg.com data:; font-src 'self' https://*.fontawesome.com fonts.gstatic.com; manifest-src 'self' https://pay.google.com; img-src 'self' https://*.globalappsec.org https://render.com https://*.render.com https://okteto.com https://*.okteto.com data: www.w3.org https://*.bestpractices.dev https://licensebuttons.net https://img.shields.io https://*.twitter.com https://github.githubassets.com https://*.twimg.com https://platform.twitter.com https://*.githubusercontent.com https://*.vercel.app https://*.cloudfront.net https://*.coreinfrastructure.org https://*.securityknowledgeframework.org https://badges.gitter.im https://travis-ci.org https://api.travis-ci.org https://s3.amazonaws.com https://snyk.io https://coveralls.io https://requires.io https://github.com https://*.googleapis.com https://*.google.com https://*.gstatic.com https://static.scarf.sh",
+                "Permissions-Policy": "geolocation=(self)",
+                "Referrer-Policy": "same-origin",
+                "X-Content-Type-Options": "nosniff",
+                "X-Frame-Options": "SAMEORIGIN",
+                "x-cache": "HIT",
+                "x-cache-hits": "1",
+                "x-fastly-request-id": "1d2d4979b5eb20483e891414353872a3b9e81567",
+                "x-github-request-id": "DE0C:6890D:F6AD65:F82399:69DFB601",
+                "x-proxy-cache": "MISS",
+                "x-served-by": "cache-fra-eddf8230230-FRA",
+                "x-timer": "S1776276955.556378,VS0,VE2",
+                "Content-Encoding": "gzip"
+            },
+            "shodan": {
+                "error": "Shodan Error: Access denied (403 Forbidden)"
+            },
+            "tech_stack": {
+                "cdn": [
+                    "CloudFlare"
+                ],
+                "javascript-frameworks": [
+                    "jQuery"
+                ]
+            }
+        },
+        "crawler": {
+            "internal": [],
+            "external": [],
+            "forms": [],
+            "error": "name 'requests' is not defined"
+        },
+        "vulnerabilities": [
+            {
+                "type": "Open Port Discovered",
+                "detail": "Port 80 (http) is open.",
+                "severity": "Medium"
+            },
+            {
+                "type": "Open Port Discovered",
+                "detail": "Port 443 (https) is open.",
+                "severity": "Medium"
+            },
+            {
+                "type": "Open Port Discovered",
+                "detail": "Port 8080 (http-proxy) is open.",
+                "severity": "Medium"
+            },
+            {
+                "type": "Open Port Discovered",
+                "detail": "Port 8443 (https-alt) is open.",
+                "severity": "Medium"
+            }
+        ],
+        "risk": {
+            "score": 40,
+            "level": "High",
+            "counts": {
+                "Critical": 0,
+                "High": 0,
+                "Medium": 4,
+                "Low": 0,
+                "Info": 0
+            }
+        }
+    },
+    {
+        "timestamp": "2026-04-15 23:46:10",
+        "target": "https://www.srmonline.in/lp/srm-online-mba.html?&utm_source=search&utm_medium=g_c_9061892__&utm_campaign=brand-broad-tn-ser-ctw-pr-srm_mba&campaign_id=20469497515&adgroup_id=153572577498&ad_id=670183001911&utm_target=kwd-2969236611&Keyword=srm%20university&placement=&gad_source=1&gad_campaignid=20469497515&gbraid=0AAAAADMIA33CPg0o7JD8Od_19ksvKpy5c&gclid=CjwKCAjw7vzOBhBxEiwAc7WNr8iAB3Q7AlYFwxDlu19Nie4r2XNGW-02QNfJvWBpawhG4NzlLMwaAxoCkFMQAvD_BwE",
+        "recon": {
+            "ip": "18.61.142.101",
+            "headers": {
+                "Date": "Wed, 15 Apr 2026 18:16:04 GMT",
+                "Server": "Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips PHP/8.0.30",
+                "Last-Modified": "Thu, 11 Jul 2024 07:26:09 GMT",
+                "ETag": "\"685-61cf3ad43cedb-gzip\"",
+                "Accept-Ranges": "bytes",
+                "Vary": "Accept-Encoding",
+                "Content-Encoding": "gzip",
+                "Cache-Control": "max-age=0",
+                "Expires": "Wed, 15 Apr 2026 18:16:04 GMT",
+                "Content-Length": "929",
+                "Keep-Alive": "timeout=5, max=100",
+                "Connection": "Keep-Alive",
+                "Content-Type": "text/html; charset=UTF-8"
+            },
+            "shodan": {
+                "error": "Shodan Error: Access denied (403 Forbidden)"
+            },
+            "tech_stack": {
+                "web-servers": [
+                    "Apache"
+                ],
+                "web-server-extensions": [
+                    "OpenSSL"
+                ]
+            }
+        },
+        "crawler": {
+            "internal": [],
+            "external": [],
+            "forms": [],
+            "error": "name 'requests' is not defined"
+        },
+        "vulnerabilities": [
+            {
+                "type": "Open Port Discovered",
+                "detail": "Port 80 (http) is open.",
+                "severity": "Medium"
+            },
+            {
+                "type": "Open Port Discovered",
+                "detail": "Port 443 (https) is open.",
+                "severity": "Medium"
+            },
+            {
+                "type": "Missing Header",
+                "detail": "Missing Strict-Transport-Security",
+                "severity": "High"
+            },
+            {
+                "type": "Exposed Sensitive File/Directory",
+                "detail": "Found accessible path: /admin",
+                "severity": "Medium"
+            },
+            {
+                "type": "Exposed Sensitive File/Directory",
+                "detail": "Found accessible path: /.git/config",
+                "severity": "High"
+            },
+            {
+                "type": "Exposed Sensitive File/Directory",
+                "detail": "Found accessible path: /backup.zip",
+                "severity": "High"
+            },
+            {
+                "type": "Exposed Sensitive File/Directory",
+                "detail": "Found accessible path: /robots.txt",
+                "severity": "Medium"
+            },
+            {
+                "type": "Exposed Sensitive File/Directory",
+                "detail": "Found accessible path: /phpinfo.php",
+                "severity": "Medium"
+            }
+        ],
+        "risk": {
+            "score": 100,
+            "level": "Critical",
+            "counts": {
+                "Critical": 0,
+                "High": 3,
+                "Medium": 5,
+                "Low": 0,
+                "Info": 0
+            }
+        }
+    },
+    {
+        "timestamp": "2026-04-15 23:46:25",
+        "target": "https://owasp.org/www-project-juice-shop/",
+        "recon": {
+            "ip": "172.66.157.115",
+            "headers": {
+                "Date": "Wed, 15 Apr 2026 18:16:12 GMT",
+                "Content-Type": "text/html; charset=utf-8",
+                "Connection": "keep-alive",
+                "CF-Ray": "9eccf0a53d299f28-FRA",
+                "CF-Cache-Status": "DYNAMIC",
+                "Access-Control-Allow-Origin": "*",
+                "Age": "35",
+                "Cache-Control": "max-age=600",
+                "Expires": "Wed, 15 Apr 2026 16:10:01 GMT",
+                "Last-Modified": "Fri, 27 Mar 2026 23:50:10 GMT",
+                "Server": "cloudflare",
+                "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+                "Vary": "Accept-Encoding",
+                "Via": "1.1 varnish",
+                "Content-Security-Policy": "default-src 'self' https://*.fontawesome.com https://api.github.com https://*.githubusercontent.com https://*.google-analytics.com https://owaspadmin.azurewebsites.net https://*.twimg.com https://platform.twitter.com https://www.youtube.com https://*.doubleclick.net; frame-ancestors 'self'; frame-src https://*.vuejs.org https://*.stripe.com https://*.wufoo.com https://*.sched.com https://*.google.com https://*.twitter.com https://www.youtube.com https://w.soundcloud.com https://buttons.github.io; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://viewer.diagrams.net https://fonts.googleapis.com https://*.fontawesome.com https://app.diagrams.net https://cdnjs.cloudflare.com https://cse.google.com https://*.vuejs.org https://*.stripe.com https://*.wufoo.com https://*.youtube.com https://*.meetup.com https://*.sched.com https://*.google-analytics.com https://unpkg.com https://buttons.github.io https://www.google.com https://*.gstatic.com https://*.twitter.com https://*.twimg.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://*.gstatic.com https://cdnjs.cloudflare.com https://www.google.com https://fonts.googleapis.com https://platform.twitter.com https://*.twimg.com data:; font-src 'self' https://*.fontawesome.com fonts.gstatic.com; manifest-src 'self' https://pay.google.com; img-src 'self' https://*.globalappsec.org https://render.com https://*.render.com https://okteto.com https://*.okteto.com data: www.w3.org https://*.bestpractices.dev https://licensebuttons.net https://img.shields.io https://*.twitter.com https://github.githubassets.com https://*.twimg.com https://platform.twitter.com https://*.githubusercontent.com https://*.vercel.app https://*.cloudfront.net https://*.coreinfrastructure.org https://*.securityknowledgeframework.org https://badges.gitter.im https://travis-ci.org https://api.travis-ci.org https://s3.amazonaws.com https://snyk.io https://coveralls.io https://requires.io https://github.com https://*.googleapis.com https://*.google.com https://*.gstatic.com https://static.scarf.sh",
+                "Permissions-Policy": "geolocation=(self)",
+                "Referrer-Policy": "same-origin",
+                "X-Content-Type-Options": "nosniff",
+                "X-Frame-Options": "SAMEORIGIN",
+                "x-cache": "HIT",
+                "x-cache-hits": "2",
+                "x-fastly-request-id": "acf3791c70fda95b78c3649b5695ce3c82e25289",
+                "x-github-request-id": "DE0C:6890D:F6AD65:F82399:69DFB601",
+                "x-proxy-cache": "MISS",
+                "x-served-by": "cache-fra-eddf8230155-FRA",
+                "x-timer": "S1776276972.373290,VS0,VE0",
+                "Content-Encoding": "gzip"
+            },
+            "shodan": {
+                "error": "Shodan Error: Access denied (403 Forbidden)"
+            },
+            "tech_stack": {
+                "cdn": [
+                    "CloudFlare"
+                ],
+                "javascript-frameworks": [
+                    "jQuery"
+                ]
+            }
+        },
+        "crawler": {
+            "internal": [],
+            "external": [],
+            "forms": [],
+            "error": "name 'requests' is not defined"
+        },
+        "vulnerabilities": [
+            {
+                "type": "Open Port Discovered",
+                "detail": "Port 80 (http) is open.",
+                "severity": "Medium"
+            },
+            {
+                "type": "Open Port Discovered",
+                "detail": "Port 443 (https) is open.",
+                "severity": "Medium"
+            },
+            {
+                "type": "Open Port Discovered",
+                "detail": "Port 8080 (http-proxy) is open.",
+                "severity": "Medium"
+            },
+            {
+                "type": "Open Port Discovered",
+                "detail": "Port 8443 (https-alt) is open.",
+                "severity": "Medium"
+            }
+        ],
+        "risk": {
+            "score": 40,
+            "level": "High",
+            "counts": {
+                "Critical": 0,
+                "High": 0,
+                "Medium": 4,
+                "Low": 0,
+                "Info": 0
+            }
+        }
+    },
+    {
+        "id": "32d2e8af-3216-452f-9f31-78269b7eac47",
+        "timestamp": "2026-04-18 13:02:05",
+        "target": "http://pmu.edu",
+        "subdomains": [
+            "dravidapozhil.pmu.edu",
+            "facultyappraisal.pmu.edu",
+            "periyarquiz.pmu.edu",
+            "periyartbi.pmu.edu",
+            "www.dravidapozhil.pmu.edu",
+            "www.facultyappraisal.pmu.edu"
+        ],
+        "recon": {
+            "ip": "148.72.90.82",
+            "server": "Microsoft-IIS/10.0",
+            "waf": "None Detected",
+            "ports": [
+                21,
+                80,
+                443,
+                8443
+            ],
+            "tech": "jQuery, Windows Server, Microsoft ASP.NET, IIS, Twitter Bootstrap"
+        },
+        "crawler": [
+            "http://pmu.edu",
+            "https://pmu.edu/admission/RegistrationNew.aspx",
+            "https://pmu.edu/",
+            "https://pmu.edu/about/",
+            "https://pmu.edu/about/history.aspx",
+            "https://pmu.edu/about/Chancellor.aspx",
+            "https://pmu.edu/about/governance.aspx",
+            "https://pmu.edu/about/management.aspx",
+            "https://pmu.edu/about/finance-officer.aspx",
+            "https://pmu.edu/about/deans.aspx",
+            "https://pmu.edu/about/directors.aspx",
+            "https://pmu.edu/about/committee.aspx",
+            "https://pmu.edu/about/statutory-bodies.aspx",
+            "https://pmu.edu/about/bye-laws.aspx",
+            "https://pmu.edu/about/accreditation-and-ranking.aspx"
+        ],
+        "vulnerabilities": [
+            {
+                "type": "Outdated Component / Known CVEs",
+                "severity": "High",
+                "url": "Infrastructure",
+                "description": "The component 'Windows Server' has known public vulnerabilities (CVEs).",
+                "remediation": "Update 'Windows Server' to the latest stable and secure version."
+            },
+            {
+                "type": "Outdated Component / Known CVEs",
+                "severity": "High",
+                "url": "Infrastructure",
+                "description": "The component 'Microsoft ASP.NET' has known public vulnerabilities (CVEs).",
+                "remediation": "Update 'Microsoft ASP.NET' to the latest stable and secure version."
+            },
+            {
+                "type": "Outdated Component / Known CVEs",
+                "severity": "High",
+                "url": "Infrastructure",
+                "description": "The component 'Twitter Bootstrap' has known public vulnerabilities (CVEs).",
+                "remediation": "Update 'Twitter Bootstrap' to the latest stable and secure version."
+            },
+            {
+                "type": "Exposed Network Port",
+                "severity": "Medium",
+                "url": "148.72.90.82:21",
+                "description": "Port 21 is open.",
+                "remediation": "Close the port if not strictly required via Firewall."
+            },
+            {
+                "type": "Exposed Network Port",
+                "severity": "Medium",
+                "url": "148.72.90.82:80",
+                "description": "Port 80 is open.",
+                "remediation": "Close the port if not strictly required via Firewall."
+            },
+            {
+                "type": "Exposed Network Port",
+                "severity": "Medium",
+                "url": "148.72.90.82:443",
+                "description": "Port 443 is open.",
+                "remediation": "Close the port if not strictly required via Firewall."
+            },
+            {
+                "type": "Exposed Network Port",
+                "severity": "Medium",
+                "url": "148.72.90.82:990",
+                "description": "Port 990 is open.",
+                "remediation": "Close the port if not strictly required via Firewall."
+            },
+            {
+                "type": "Exposed Network Port",
+                "severity": "Medium",
+                "url": "148.72.90.82:8443",
+                "description": "Port 8443 is open.",
+                "remediation": "Close the port if not strictly required via Firewall."
+            },
+            {
+                "type": "Missing HSTS Header",
+                "severity": "Medium",
+                "url": "http://pmu.edu",
+                "description": "The server does not enforce HTTP Strict Transport Security (HSTS).",
+                "remediation": "Configure the web server to include the 'Strict-Transport-Security' header."
+            },
+            {
+                "type": "Clickjacking Vulnerability",
+                "severity": "Medium",
+                "url": "http://pmu.edu",
+                "description": "The 'X-Frame-Options' header is missing.",
+                "remediation": "Implement 'X-Frame-Options: DENY' or 'SAMEORIGIN'."
+            },
+            {
+                "type": "Missing CSP Header",
+                "severity": "Low",
+                "url": "http://pmu.edu",
+                "description": "Content-Security-Policy is not set, increasing risk of XSS.",
+                "remediation": "Implement a strict Content-Security-Policy."
+            },
+            {
+                "type": "Missing MIME Sniffing Protection",
+                "severity": "Low",
+                "url": "http://pmu.edu",
+                "description": "X-Content-Type-Options is missing.",
+                "remediation": "Set 'X-Content-Type-Options: nosniff'."
+            }
+        ],
+        "risk": {
+            "score": 100,
+            "level": "Critical",
+            "counts": {
+                "Critical": 0,
+                "High": 3,
+                "Medium": 7,
+                "Low": 2,
+                "Info": 0
+            }
+        }
+    },
+    {
+        "id": "b12a04cb-d95b-4bbe-bf3e-61818d1e9ec6",
+        "timestamp": "2026-04-18 13:18:37",
+        "target": "http://hindustanuniv.ac.in",
+        "subdomains": [
+            "admin.placements.hindustanuniv.ac.in",
+            "admissions.hindustanuniv.ac.in",
+            "alumni.hindustanuniv.ac.in",
+            "api.hindustanuniv.ac.in",
+            "apply.hindustanuniv.ac.in",
+            "applycode.hindustanuniv.ac.in",
+            "codelms.hindustanuniv.ac.in",
+            "cse.hindustanuniv.ac.in",
+            "delivery.hindustanuniv.ac.in",
+            "elink.hindustanuniv.ac.in",
+            "hitslaw.hindustanuniv.ac.in",
+            "learn.hindustanuniv.ac.in",
+            "mserp.hindustanuniv.ac.in",
+            "onlineapply.hindustanuniv.ac.in",
+            "pgadmissions.hindustanuniv.ac.in",
+            "placements.hindustanuniv.ac.in",
+            "portal.hindustanuniv.ac.in",
+            "www.admissions.hindustanuniv.ac.in",
+            "www.apply.hindustanuniv.ac.in",
+            "www.hindustanuniv.ac.in",
+            "www.pgadmissions.hindustanuniv.ac.in"
+        ],
+        "recon": {
+            "ip": "148.113.0.136",
+            "server": "nginx/1.20.1",
+            "waf": "None Detected",
+            "ports": [
+                21,
+                22,
+                80,
+                443,
+                8080
+            ],
+            "tech": "Twitter Bootstrap, Nginx, Google Font API, jQuery, Google Tag Manager"
+        },
+        "crawler": [
+            "http://hindustanuniv.ac.in",
+            "http://hindustanuniv.ac.in#content-wrap",
+            "https://apply.hindustanuniv.ac.in/",
+            "https://hindustanuniv.ac.in/academics/programs/",
+            "https://hindustanuniv.ac.in/research",
+            "https://hindustanuniv.ac.in/facilities/library",
+            "https://hindustanuniv.ac.in/international-affairs",
+            "https://hindustanuniv.ac.in/students-affairs",
+            "https://hindustanuniv.ac.in/placements",
+            "https://hindustanuniv.ac.in/alumni-hits",
+            "https://hindustanuniv.ac.in/pay-fees-online",
+            "https://hindustanuniv.ac.in/careers",
+            "https://hindustanuniv.ac.in/search",
+            "https://hindustanuniv.ac.in/",
+            "https://hindustanuniv.ac.in/erp"
+        ],
+        "vulnerabilities": [
+            {
+                "type": "Outdated Component / Known CVEs",
+                "severity": "High",
+                "url": "Infrastructure",
+                "description": "The component 'Twitter Bootstrap' has known public vulnerabilities (CVEs).",
+                "remediation": "Update 'Twitter Bootstrap' to the latest stable and secure version."
+            },
+            {
+                "type": "Exposed Network Port",
+                "severity": "Medium",
+                "url": "148.113.0.136:21",
+                "description": "Port 21 is open.",
+                "remediation": "Close the port if not strictly required via Firewall."
+            },
+            {
+                "type": "Exposed Network Port",
+                "severity": "Medium",
+                "url": "148.113.0.136:22",
+                "description": "Port 22 is open.",
+                "remediation": "Close the port if not strictly required via Firewall."
+            },
+            {
+                "type": "Exposed Network Port",
+                "severity": "Medium",
+                "url": "148.113.0.136:80",
+                "description": "Port 80 is open.",
+                "remediation": "Close the port if not strictly required via Firewall."
+            },
+            {
+                "type": "Exposed Network Port",
+                "severity": "Medium",
+                "url": "148.113.0.136:443",
+                "description": "Port 443 is open.",
+                "remediation": "Close the port if not strictly required via Firewall."
+            },
+            {
+                "type": "Exposed Network Port",
+                "severity": "Medium",
+                "url": "148.113.0.136:8080",
+                "description": "Port 8080 is open.",
+                "remediation": "Close the port if not strictly required via Firewall."
+            },
+            {
+                "type": "Missing HSTS Header",
+                "severity": "Medium",
+                "url": "http://hindustanuniv.ac.in",
+                "description": "The server does not enforce HTTP Strict Transport Security (HSTS).",
+                "remediation": "Configure the web server to include the 'Strict-Transport-Security' header."
+            },
+            {
+                "type": "Clickjacking Vulnerability",
+                "severity": "Medium",
+                "url": "http://hindustanuniv.ac.in",
+                "description": "The 'X-Frame-Options' header is missing.",
+                "remediation": "Implement 'X-Frame-Options: DENY' or 'SAMEORIGIN'."
+            },
+            {
+                "type": "Missing CSP Header",
+                "severity": "Low",
+                "url": "http://hindustanuniv.ac.in",
+                "description": "Content-Security-Policy is not set, increasing risk of XSS.",
+                "remediation": "Implement a strict Content-Security-Policy."
+            },
+            {
+                "type": "Missing MIME Sniffing Protection",
+                "severity": "Low",
+                "url": "http://hindustanuniv.ac.in",
+                "description": "X-Content-Type-Options is missing.",
+                "remediation": "Set 'X-Content-Type-Options: nosniff'."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "Info",
+                "url": "http://hindustanuniv.ac.in/admin",
+                "description": "Accessible path found at /admin.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "High",
+                "url": "http://hindustanuniv.ac.in/.git/config",
+                "description": "Accessible path found at /.git/config.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "High",
+                "url": "http://hindustanuniv.ac.in/backup.zip",
+                "description": "Accessible path found at /backup.zip.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "Info",
+                "url": "http://hindustanuniv.ac.in/robots.txt",
+                "description": "Accessible path found at /robots.txt.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "High",
+                "url": "http://hindustanuniv.ac.in/.env",
+                "description": "Accessible path found at /.env.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "High",
+                "url": "http://hindustanuniv.ac.in/config.php.bak",
+                "description": "Accessible path found at /config.php.bak.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "Info",
+                "url": "http://hindustanuniv.ac.in/server-status",
+                "description": "Accessible path found at /server-status.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "Info",
+                "url": "http://hindustanuniv.ac.in/.DS_Store",
+                "description": "Accessible path found at /.DS_Store.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "High",
+                "url": "http://hindustanuniv.ac.in/wp-config.php.bak",
+                "description": "Accessible path found at /wp-config.php.bak.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "Info",
+                "url": "http://hindustanuniv.ac.in/api/v1/users",
+                "description": "Accessible path found at /api/v1/users.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Administrative Interface",
+                "severity": "Medium",
+                "url": "http://hindustanuniv.ac.in/admin",
+                "description": "A publicly accessible login panel was discovered at '/admin'.",
+                "remediation": "Restrict access to administrative interfaces using IP whitelisting or a VPN. Enforce MFA."
+            },
+            {
+                "type": "Exposed Administrative Interface",
+                "severity": "Medium",
+                "url": "http://hindustanuniv.ac.in/administrator",
+                "description": "A publicly accessible login panel was discovered at '/administrator'.",
+                "remediation": "Restrict access to administrative interfaces using IP whitelisting or a VPN. Enforce MFA."
+            },
+            {
+                "type": "Exposed Administrative Interface",
+                "severity": "Medium",
+                "url": "http://hindustanuniv.ac.in/login",
+                "description": "A publicly accessible login panel was discovered at '/login'.",
+                "remediation": "Restrict access to administrative interfaces using IP whitelisting or a VPN. Enforce MFA."
+            },
+            {
+                "type": "Exposed Administrative Interface",
+                "severity": "Medium",
+                "url": "http://hindustanuniv.ac.in/manager/html",
+                "description": "A publicly accessible login panel was discovered at '/manager/html'.",
+                "remediation": "Restrict access to administrative interfaces using IP whitelisting or a VPN. Enforce MFA."
+            }
+        ],
+        "risk": {
+            "score": 100,
+            "level": "Critical",
+            "counts": {
+                "Critical": 0,
+                "High": 6,
+                "Medium": 11,
+                "Low": 2,
+                "Info": 5
+            }
+        }
+    },
+    {
+        "id": "2969543b-4dcb-4fa1-acb5-5f03337e6297",
+        "timestamp": "2026-04-18 13:18:44",
+        "target": "http://testphp.vulnweb.com",
+        "subdomains": [],
+        "recon": {
+            "ip": "44.228.249.3",
+            "server": "Information Not Disclosed",
+            "waf": "Strict Firewall/WAF (Timed Out)",
+            "ports": [],
+            "tech": "Analysis Timed Out (Strict WAF)"
+        },
+        "crawler": [],
+        "vulnerabilities": [],
+        "risk": {
+            "score": 0,
+            "level": "Secure",
+            "counts": {
+                "Critical": 0,
+                "High": 0,
+                "Medium": 0,
+                "Low": 0,
+                "Info": 0
+            }
+        }
+    },
+    {
+        "id": "220c52cb-1508-4769-9993-59fca30a6e58",
+        "timestamp": "2026-04-18 13:28:40",
+        "target": "http://hindustanuniv.ac.in",
+        "subdomains": [
+            "admin.placements.hindustanuniv.ac.in",
+            "admissions.hindustanuniv.ac.in",
+            "alumni.hindustanuniv.ac.in",
+            "api.hindustanuniv.ac.in",
+            "apply.hindustanuniv.ac.in",
+            "code.hindustanuniv.ac.in",
+            "communiq.hindustanuniv.ac.in",
+            "cse.hindustanuniv.ac.in",
+            "hitslaw.hindustanuniv.ac.in",
+            "ir.hindustanuniv.ac.in",
+            "learn.hindustanuniv.ac.in",
+            "lms.hindustanuniv.ac.in",
+            "mserp.hindustanuniv.ac.in",
+            "ns.hindustanuniv.ac.in",
+            "www.hindustanuniv.ac.in"
+        ],
+        "recon": {
+            "ip": "148.113.0.136",
+            "server": "nginx/1.20.1",
+            "waf": "None Detected",
+            "ports": [
+                21,
+                22,
+                80,
+                443,
+                8080
+            ],
+            "tech": "Google Tag Manager, jQuery, Google Font API, Twitter Bootstrap, Nginx"
+        },
+        "crawler": [
+            "http://hindustanuniv.ac.in",
+            "http://hindustanuniv.ac.in#content-wrap",
+            "https://apply.hindustanuniv.ac.in/",
+            "https://hindustanuniv.ac.in/academics/programs/",
+            "https://hindustanuniv.ac.in/research",
+            "https://hindustanuniv.ac.in/facilities/library",
+            "https://hindustanuniv.ac.in/international-affairs",
+            "https://hindustanuniv.ac.in/students-affairs",
+            "https://hindustanuniv.ac.in/placements",
+            "https://hindustanuniv.ac.in/alumni-hits",
+            "https://hindustanuniv.ac.in/pay-fees-online",
+            "https://hindustanuniv.ac.in/careers",
+            "https://hindustanuniv.ac.in/search",
+            "https://hindustanuniv.ac.in/",
+            "https://hindustanuniv.ac.in/erp"
+        ],
+        "vulnerabilities": [
+            {
+                "type": "Outdated Component / Known CVEs",
+                "severity": "High",
+                "url": "Infrastructure",
+                "description": "The component 'Twitter Bootstrap' has known public vulnerabilities (CVEs).",
+                "remediation": "Update 'Twitter Bootstrap' to the latest stable and secure version."
+            },
+            {
+                "type": "Exposed Network Port",
+                "severity": "Medium",
+                "url": "148.113.0.136:21",
+                "description": "Port 21 is open.",
+                "remediation": "Close the port if not strictly required via Firewall."
+            },
+            {
+                "type": "Exposed Network Port",
+                "severity": "Medium",
+                "url": "148.113.0.136:22",
+                "description": "Port 22 is open.",
+                "remediation": "Close the port if not strictly required via Firewall."
+            },
+            {
+                "type": "Exposed Network Port",
+                "severity": "Medium",
+                "url": "148.113.0.136:80",
+                "description": "Port 80 is open.",
+                "remediation": "Close the port if not strictly required via Firewall."
+            },
+            {
+                "type": "Exposed Network Port",
+                "severity": "Medium",
+                "url": "148.113.0.136:443",
+                "description": "Port 443 is open.",
+                "remediation": "Close the port if not strictly required via Firewall."
+            },
+            {
+                "type": "Exposed Network Port",
+                "severity": "Medium",
+                "url": "148.113.0.136:8080",
+                "description": "Port 8080 is open.",
+                "remediation": "Close the port if not strictly required via Firewall."
+            },
+            {
+                "type": "Missing HSTS Header",
+                "severity": "Medium",
+                "url": "http://hindustanuniv.ac.in",
+                "description": "The server does not enforce HTTP Strict Transport Security (HSTS).",
+                "remediation": "Configure the web server to include the 'Strict-Transport-Security' header."
+            },
+            {
+                "type": "Clickjacking Vulnerability",
+                "severity": "Medium",
+                "url": "http://hindustanuniv.ac.in",
+                "description": "The 'X-Frame-Options' header is missing.",
+                "remediation": "Implement 'X-Frame-Options: DENY' or 'SAMEORIGIN'."
+            },
+            {
+                "type": "Missing CSP Header",
+                "severity": "Low",
+                "url": "http://hindustanuniv.ac.in",
+                "description": "Content-Security-Policy is not set, increasing risk of XSS.",
+                "remediation": "Implement a strict Content-Security-Policy."
+            },
+            {
+                "type": "Missing MIME Sniffing Protection",
+                "severity": "Low",
+                "url": "http://hindustanuniv.ac.in",
+                "description": "X-Content-Type-Options is missing.",
+                "remediation": "Set 'X-Content-Type-Options: nosniff'."
+            },
+            {
+                "type": "Exposed Administrative Interface",
+                "severity": "Medium",
+                "url": "http://hindustanuniv.ac.in/admin",
+                "description": "A publicly accessible login panel was discovered at '/admin'.",
+                "remediation": "Restrict access to administrative interfaces using IP whitelisting or a VPN. Enforce MFA."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "Info",
+                "url": "http://hindustanuniv.ac.in/admin",
+                "description": "Accessible path found at /admin.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "High",
+                "url": "http://hindustanuniv.ac.in/.git/config",
+                "description": "Accessible path found at /.git/config.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "High",
+                "url": "http://hindustanuniv.ac.in/backup.zip",
+                "description": "Accessible path found at /backup.zip.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "Info",
+                "url": "http://hindustanuniv.ac.in/robots.txt",
+                "description": "Accessible path found at /robots.txt.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "High",
+                "url": "http://hindustanuniv.ac.in/.env",
+                "description": "Accessible path found at /.env.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "High",
+                "url": "http://hindustanuniv.ac.in/config.php.bak",
+                "description": "Accessible path found at /config.php.bak.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "Info",
+                "url": "http://hindustanuniv.ac.in/server-status",
+                "description": "Accessible path found at /server-status.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "Info",
+                "url": "http://hindustanuniv.ac.in/.DS_Store",
+                "description": "Accessible path found at /.DS_Store.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "High",
+                "url": "http://hindustanuniv.ac.in/wp-config.php.bak",
+                "description": "Accessible path found at /wp-config.php.bak.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "Info",
+                "url": "http://hindustanuniv.ac.in/api/v1/users",
+                "description": "Accessible path found at /api/v1/users.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Administrative Interface",
+                "severity": "Medium",
+                "url": "http://hindustanuniv.ac.in/administrator",
+                "description": "A publicly accessible login panel was discovered at '/administrator'.",
+                "remediation": "Restrict access to administrative interfaces using IP whitelisting or a VPN. Enforce MFA."
+            },
+            {
+                "type": "Exposed Administrative Interface",
+                "severity": "Medium",
+                "url": "http://hindustanuniv.ac.in/login",
+                "description": "A publicly accessible login panel was discovered at '/login'.",
+                "remediation": "Restrict access to administrative interfaces using IP whitelisting or a VPN. Enforce MFA."
+            },
+            {
+                "type": "Exposed Administrative Interface",
+                "severity": "Medium",
+                "url": "http://hindustanuniv.ac.in/manager/html",
+                "description": "A publicly accessible login panel was discovered at '/manager/html'.",
+                "remediation": "Restrict access to administrative interfaces using IP whitelisting or a VPN. Enforce MFA."
+            }
+        ],
+        "risk": {
+            "score": 100,
+            "level": "Critical",
+            "counts": {
+                "Critical": 0,
+                "High": 6,
+                "Medium": 11,
+                "Low": 2,
+                "Info": 5
+            }
+        }
+    },
+    {
+        "id": "61b817df-c0ea-45e2-be2b-53fe52da1607",
+        "timestamp": "2026-04-18 13:35:53",
+        "target": "http://hindustanuniv.ac.in",
+        "subdomains": [
+            "admin.placements.hindustanuniv.ac.in",
+            "admissions.hindustanuniv.ac.in",
+            "alumni.hindustanuniv.ac.in",
+            "api.hindustanuniv.ac.in",
+            "apply.hindustanuniv.ac.in",
+            "code.hindustanuniv.ac.in",
+            "communiq.hindustanuniv.ac.in",
+            "cse.hindustanuniv.ac.in",
+            "hitslaw.hindustanuniv.ac.in",
+            "ir.hindustanuniv.ac.in",
+            "learn.hindustanuniv.ac.in",
+            "lms.hindustanuniv.ac.in",
+            "mserp.hindustanuniv.ac.in",
+            "ns.hindustanuniv.ac.in",
+            "www.hindustanuniv.ac.in"
+        ],
+        "recon": {
+            "ip": "148.113.0.136",
+            "server": "nginx/1.20.1",
+            "waf": "None Detected",
+            "ports": [
+                21,
+                22,
+                80,
+                443,
+                8080
+            ],
+            "tech": "Analysis Timed Out (Strict WAF)"
+        },
+        "crawler": [
+            "http://hindustanuniv.ac.in",
+            "http://hindustanuniv.ac.in#content-wrap",
+            "https://apply.hindustanuniv.ac.in/",
+            "https://hindustanuniv.ac.in/academics/programs/",
+            "https://hindustanuniv.ac.in/research",
+            "https://hindustanuniv.ac.in/facilities/library",
+            "https://hindustanuniv.ac.in/international-affairs",
+            "https://hindustanuniv.ac.in/students-affairs",
+            "https://hindustanuniv.ac.in/placements",
+            "https://hindustanuniv.ac.in/alumni-hits",
+            "https://hindustanuniv.ac.in/pay-fees-online",
+            "https://hindustanuniv.ac.in/careers",
+            "https://hindustanuniv.ac.in/search",
+            "https://hindustanuniv.ac.in/",
+            "https://hindustanuniv.ac.in/erp"
+        ],
+        "vulnerabilities": [
+            {
+                "type": "Exposed Network Port",
+                "severity": "Medium",
+                "url": "148.113.0.136:21",
+                "description": "Port 21 is open.",
+                "remediation": "Close the port if not strictly required via Firewall."
+            },
+            {
+                "type": "Exposed Network Port",
+                "severity": "Medium",
+                "url": "148.113.0.136:22",
+                "description": "Port 22 is open.",
+                "remediation": "Close the port if not strictly required via Firewall."
+            },
+            {
+                "type": "Exposed Network Port",
+                "severity": "Medium",
+                "url": "148.113.0.136:80",
+                "description": "Port 80 is open.",
+                "remediation": "Close the port if not strictly required via Firewall."
+            },
+            {
+                "type": "Exposed Network Port",
+                "severity": "Medium",
+                "url": "148.113.0.136:443",
+                "description": "Port 443 is open.",
+                "remediation": "Close the port if not strictly required via Firewall."
+            },
+            {
+                "type": "Exposed Network Port",
+                "severity": "Medium",
+                "url": "148.113.0.136:8080",
+                "description": "Port 8080 is open.",
+                "remediation": "Close the port if not strictly required via Firewall."
+            },
+            {
+                "type": "Missing HSTS Header",
+                "severity": "Medium",
+                "url": "http://hindustanuniv.ac.in",
+                "description": "The server does not enforce HTTP Strict Transport Security (HSTS).",
+                "remediation": "Configure the web server to include the 'Strict-Transport-Security' header."
+            },
+            {
+                "type": "Clickjacking Vulnerability",
+                "severity": "Medium",
+                "url": "http://hindustanuniv.ac.in",
+                "description": "The 'X-Frame-Options' header is missing.",
+                "remediation": "Implement 'X-Frame-Options: DENY' or 'SAMEORIGIN'."
+            },
+            {
+                "type": "Missing CSP Header",
+                "severity": "Low",
+                "url": "http://hindustanuniv.ac.in",
+                "description": "Content-Security-Policy is not set, increasing risk of XSS.",
+                "remediation": "Implement a strict Content-Security-Policy."
+            },
+            {
+                "type": "Missing MIME Sniffing Protection",
+                "severity": "Low",
+                "url": "http://hindustanuniv.ac.in",
+                "description": "X-Content-Type-Options is missing.",
+                "remediation": "Set 'X-Content-Type-Options: nosniff'."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "Info",
+                "url": "http://hindustanuniv.ac.in/admin",
+                "description": "Accessible path found at /admin.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "High",
+                "url": "http://hindustanuniv.ac.in/.git/config",
+                "description": "Accessible path found at /.git/config.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "High",
+                "url": "http://hindustanuniv.ac.in/backup.zip",
+                "description": "Accessible path found at /backup.zip.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "Info",
+                "url": "http://hindustanuniv.ac.in/robots.txt",
+                "description": "Accessible path found at /robots.txt.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "High",
+                "url": "http://hindustanuniv.ac.in/.env",
+                "description": "Accessible path found at /.env.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "High",
+                "url": "http://hindustanuniv.ac.in/config.php.bak",
+                "description": "Accessible path found at /config.php.bak.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "Info",
+                "url": "http://hindustanuniv.ac.in/server-status",
+                "description": "Accessible path found at /server-status.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "Info",
+                "url": "http://hindustanuniv.ac.in/.DS_Store",
+                "description": "Accessible path found at /.DS_Store.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "High",
+                "url": "http://hindustanuniv.ac.in/wp-config.php.bak",
+                "description": "Accessible path found at /wp-config.php.bak.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Sensitive Directory/File",
+                "severity": "Info",
+                "url": "http://hindustanuniv.ac.in/api/v1/users",
+                "description": "Accessible path found at /api/v1/users.",
+                "remediation": "Restrict access via .htaccess, remove the file, or use server configurations."
+            },
+            {
+                "type": "Exposed Administrative Interface",
+                "severity": "Medium",
+                "url": "http://hindustanuniv.ac.in/admin",
+                "description": "A publicly accessible login panel was discovered at '/admin'.",
+                "remediation": "Restrict access to administrative interfaces using IP whitelisting or a VPN. Enforce MFA."
+            },
+            {
+                "type": "Exposed Administrative Interface",
+                "severity": "Medium",
+                "url": "http://hindustanuniv.ac.in/administrator",
+                "description": "A publicly accessible login panel was discovered at '/administrator'.",
+                "remediation": "Restrict access to administrative interfaces using IP whitelisting or a VPN. Enforce MFA."
+            },
+            {
+                "type": "Exposed Administrative Interface",
+                "severity": "Medium",
+                "url": "http://hindustanuniv.ac.in/login",
+                "description": "A publicly accessible login panel was discovered at '/login'.",
+                "remediation": "Restrict access to administrative interfaces using IP whitelisting or a VPN. Enforce MFA."
+            },
+            {
+                "type": "Exposed Administrative Interface",
+                "severity": "Medium",
+                "url": "http://hindustanuniv.ac.in/manager/html",
+                "description": "A publicly accessible login panel was discovered at '/manager/html'.",
+                "remediation": "Restrict access to administrative interfaces using IP whitelisting or a VPN. Enforce MFA."
+            }
+        ],
+        "risk": {
+            "score": 100,
+            "level": "Critical",
+            "counts": {
+                "Critical": 0,
+                "High": 5,
+                "Medium": 11,
+                "Low": 2,
+                "Info": 5
+            }
+        }
+    },
+    {
+        "id": "308a9c37-d736-4ddc-a051-3de1e8850f8d",
+        "timestamp": "2026-04-18 18:17:26",
+        "target": "http://hindustanuniv.ac.in",
+        "subdomains": [
+            "admin.placements.hindustanuniv.ac.in",
+            "admissions.hindustanuniv.ac.in",
+            "alumni.hindustanuniv.ac.in",
+            "api.hindustanuniv.ac.in",
+            "apply.hindustanuniv.ac.in",
+            "code.hindustanuniv.ac.in",
+            "communiq.hindustanuniv.ac.in",
+            "cse.hindustanuniv.ac.in",
+            "hitslaw.hindustanuniv.ac.in",
+            "ir.hindustanuniv.ac.in",
+            "learn.hindustanuniv.ac.in",
+            "lms.hindustanuniv.ac.in",
+            "mserp.hindustanuniv.ac.in",
+            "ns.hindustanuniv.ac.in",
+            "www.hindustanuniv.ac.in"
+        ],
+        "recon": {
+            "ip": "148.113.0.136",
+            "server": "nginx/1.20.1",
+            "waf": "None Detected",
+            "ports": [
+                21,
+                22,
+                80,
+                443,
+                8080
+            ],
+            "tech": "jQuery, Google Tag Manager, Google Font API, Twitter Bootstrap, Nginx"
+        },
+        "crawler": [
+            "http://hindustanuniv.ac.in",
+            "http://hindustanuniv.ac.in#content-wrap",
+            "https://apply.hindustanuniv.ac.in/",
+            "https://hindustanuniv.ac.in/academics/programs/",
+            "https://hindustanuniv.ac.in/research",
+            "https://hindustanuniv.ac.in/facilities/library",
+            "https://hindustanuniv.ac.in/international-affairs",
+            "https://hindustanuniv.ac.in/students-affairs",
+            "https://hindustanuniv.ac.in/placements",
+            "https://hindustanuniv.ac.in/alumni-hits",
+            "https://hindustanuniv.ac.in/pay-fees-online",
+            "https://hindustanuniv.ac.in/careers",
+            "https://hindustanuniv.ac.in/search",
+            "https://hindustanuniv.ac.in/",
+            "https://hindustanuniv.ac.in/erp"
+        ],
+        "vulnerabilities": [
+            {
+                "type": "Exposed Network Port",
+                "severity": "Medium",
+                "url": "148.113.0.136:21",
+                "description": "Port 21 is open.",
+                "remediation": "Close the port if not strictly required via Firewall."
+            },
+            {
+                "type": "Exposed Network Port",
+                "severity": "Medium",
+                "url": "148.113.0.136:22",
+                "description": "Port 22 is open.",
+                "remediation": "Close the port if not strictly required via Firewall."
+            },
+            {
+                "type": "Exposed Network Port",
+                "severity": "Medium",
+                "url": "148.113.0.136:80",
+                "description": "Port 80 is open.",
+                "remediation": "Close the port if not strictly required via Firewall."
+            },
+            {
+                "type": "Exposed Network Port",
+                "severity": "Medium",
+                "url": "148.113.0.136:443",
+                "description": "Port 443 is open.",
+                "remediation": "Close the port if not strictly required via Firewall."
+            },
+            {
+                "type": "Exposed Network Port",
+                "severity": "Medium",
+                "url": "148.113.0.136:8080",
+                "description": "Port 8080 is open.",
+                "remediation": "Close the port if not strictly required via Firewall."
+            }
+        ],
+        "risk": {
+            "score": 50,
+            "level": "High",
+            "counts": {
+                "Critical": 0,
+                "High": 0,
+                "Medium": 5,
+                "Low": 0,
+                "Info": 0
+            }
+        }
+    }
+]

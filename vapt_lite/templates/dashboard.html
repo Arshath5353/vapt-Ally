@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VAPT Ally - Assessment Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #090a0f; --bg2: #12141d; --surface: #1e212b;
+            --border: #2a2d39; --border2: #3a3f50; --accent: #00e5ff;
+            --red: #ff4d4d; --orange: #ff9e43; --yellow: #fadb14; --green: #00e676;
+            --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+            --font-mono: 'JetBrains Mono', monospace; --font-display: 'Syne', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text); font-family: var(--font-mono); min-height: 100vh; }
+        .layout { max-width: 1400px; margin: 0 auto; padding: 48px 32px; }
+
+        .topbar { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+        .back-link { color: var(--text2); text-decoration: none; font-size: 14px; margin-bottom: 12px; display: block; transition: 0.2s; }
+        .back-link:hover { color: var(--accent); }
+        .report-title { font-family: var(--font-display); font-size: 32px; font-weight: 700; color: #fff; line-height: 1.2;}
+        .report-target { color: var(--accent); font-weight: 400; font-size: 18px; margin-top: 8px; }
+        
+        .btn-primary { background: var(--text); color: var(--bg); padding: 12px 24px; border-radius: 6px; text-decoration: none; font-family: var(--font-display); font-weight: 700; font-size: 14px; transition: 0.2s; }
+        .btn-primary:hover { background: var(--accent); }
+
+        .error-banner { background: rgba(255, 77, 77, 0.1); border: 1px solid var(--red); color: var(--red); padding: 16px 24px; border-radius: 8px; margin-bottom: 32px; font-size: 14px; }
+
+        .summary-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 40px; }
+        .summary-item { background: var(--surface); padding: 32px 24px; text-align: center; }
+        .summary-label { font-size: 12px; text-transform: uppercase; color: var(--text3); margin-bottom: 12px; letter-spacing: 0.05em; }
+        .summary-value { font-family: var(--font-display); font-size: 36px; font-weight: 700; color: #fff; }
+        
+        .dashboard-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; margin-bottom: 32px; }
+        .col-span-2 { grid-column: span 2; }
+        .col-span-3 { grid-column: span 3; }
+        @media (max-width: 1024px) { .dashboard-grid { grid-template-columns: 1fr; } .col-span-2, .col-span-3 { grid-column: span 1; } }
+
+        .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 32px; min-height: 350px; display: flex; flex-direction: column; }
+        .card-header { font-size: 14px; text-transform: uppercase; color: var(--text2); margin-bottom: 24px; font-weight: 600; border-bottom: 1px solid var(--border); padding-bottom: 16px; letter-spacing: 0.05em; }
+
+        .risk-display { text-align: center; padding: 40px 0; margin: auto; }
+        .risk-score { font-family: var(--font-display); font-size: 80px; font-weight: 800; line-height: 1; margin-bottom: 12px; }
+        .risk-label { font-size: 18px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+        .critical { color: var(--red); } .high { color: var(--orange); } .medium { color: var(--yellow); } .low { color: var(--green); } .info { color: var(--text3); } .error { color: var(--text3); }
+
+        .data-list { flex: 1; max-height: 600px; overflow-y: auto; padding-right: 12px; }
+        .data-list::-webkit-scrollbar { width: 6px; }
+        .data-list::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 6px; }
+
+        .list-item { background: var(--bg2); border: 1px solid var(--border); padding: 20px; border-radius: 8px; margin-bottom: 16px; font-size: 13px; }
+        
+        .vuln-item { border-left: 4px solid transparent; }
+        .vuln-item.critical { border-left-color: var(--red); }
+        .vuln-item.high { border-left-color: var(--orange); }
+        .vuln-item.medium { border-left-color: var(--yellow); }
+        .vuln-item.low { border-left-color: var(--green); }
+        .vuln-item.info { border-left-color: var(--text3); }
+        
+        .vuln-title { font-weight: 700; font-size: 15px; margin-bottom: 12px; color: #fff; display: flex; justify-content: space-between; }
+        .vuln-badge { font-size: 11px; padding: 4px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .vuln-badge.critical { background: rgba(255, 77, 77, 0.1); color: var(--red); }
+        .vuln-badge.high { background: rgba(255, 158, 67, 0.1); color: var(--orange); }
+        .vuln-badge.medium { background: rgba(250, 219, 20, 0.1); color: var(--yellow); }
+        .vuln-badge.low { background: rgba(0, 230, 118, 0.1); color: var(--green); }
+        .vuln-badge.info { background: rgba(100, 116, 139, 0.1); color: var(--text3); }
+
+        .vuln-detail-group { margin-bottom: 12px; }
+        .vuln-label { color: var(--text3); font-size: 11px; text-transform: uppercase; margin-bottom: 4px; display: block; font-weight: 600; }
+        .vuln-value { color: var(--text2); line-height: 1.6; word-wrap: break-word; }
+        .vuln-url { color: var(--accent); text-decoration: none; word-wrap: break-word; }
+
+        .kv-row { display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding: 16px 0; font-size: 14px; }
+        .kv-row:last-child { border-bottom: none; }
+        .kv-key { color: var(--text3); font-weight: 500; }
+        .kv-val { color: var(--text); text-align: right; word-break: break-all; max-width: 60%; font-weight: 500; }
+        
+        .empty-state { text-align: center; color: var(--text3); padding: 40px 0; font-style: italic; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+<div class="layout">
+    <div class="topbar">
+        <div>
+            <a href="/" class="back-link">← Return to Home</a>
+            <h1 class="report-title">Assessment Intelligence Report</h1>
+            <div class="report-target">{{ data.get('target', 'Unknown Target') }}</div>
+        </div>
+        <div>
+            <a href="/download_report" class="btn-primary">Download PDF Report</a>
+        </div>
+    </div>
+
+    {% if data.get('error') %}
+    <div class="error-banner">
+        <strong>Engine Exception Detected:</strong> {{ data.error }}
+    </div>
+    {% endif %}
+
+    <div class="summary-bar">
+        <div class="summary-item">
+            <div class="summary-label">Target IP Address</div>
+            <div class="summary-value" style="font-size: 24px;">
+                {{ data.recon.get('ip', 'Unknown') if data.get('recon') else "Unknown" }}
+            </div>
+        </div>
+        <div class="summary-item">
+            <div class="summary-label">Discovered Subdomains</div>
+            <div class="summary-value">{{ data.subdomains | length if data.get('subdomains') else 0 }}</div>
+        </div>
+        <div class="summary-item">
+            <div class="summary-label">Crawled Paths</div>
+            <div class="summary-value">{{ data.crawler | length if data.get('crawler') else 0 }}</div>
+        </div>
+        <div class="summary-item">
+            <div class="summary-label">Total Vulnerabilities</div>
+            <div class="summary-value">{{ data.vulnerabilities | length if data.get('vulnerabilities') else 0 }}</div>
+        </div>
+    </div>
+
+    <div class="dashboard-grid">
+        <div class="card">
+            <div class="card-header">Overall Risk Posture</div>
+            <div class="risk-display">
+                <div class="risk-score {{ data.risk.get('level', 'info') | lower if data.get('risk') else 'info' }}">
+                    {{ data.risk.get('score', 0) if data.get('risk') else 0 }}
+                </div>
+                <div class="risk-label {{ data.risk.get('level', 'info') | lower if data.get('risk') else 'info' }}">
+                    {{ data.risk.get('level', 'Unknown') if data.get('risk') else "Unknown" }} Risk
+                </div>
+            </div>
+        </div>
+
+        <div class="card col-span-2">
+            <div class="card-header">Infrastructure Intelligence</div>
+            <div class="data-list">
+                <div class="kv-row">
+                    <span class="kv-key">Server Info</span>
+                    <span class="kv-val">{{ data.recon.get('server', 'Information Not Disclosed') if data.get('recon') else "N/A" }}</span>
+                </div>
+                <div class="kv-row">
+                    <span class="kv-key">WAF Detected</span>
+                    <span class="kv-val">{{ data.recon.get('waf', 'None Detected') if data.get('recon') else "N/A" }}</span>
+                </div>
+                <div class="kv-row">
+                    <span class="kv-key">Open Ports</span>
+                    <span class="kv-val">
+                        {% if data.get('recon') and data.recon.get('ports') %}
+                            {% if data.recon.ports is string %}
+                                {{ data.recon.ports }}
+                            {% else %}
+                                {{ data.recon.ports | join(', ') }}
+                            {% endif %}
+                        {% else %}
+                            No Open Ports Discovered
+                        {% endif %}
+                    </span>
+                </div>
+                <div class="kv-row">
+                    <span class="kv-key">Technology Stack</span>
+                    <span class="kv-val">{{ data.recon.get('tech', 'Undetermined') if data.get('recon') else "N/A" }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-grid">
+        <div class="card col-span-2">
+            <div class="card-header">Detailed Vulnerability Findings</div>
+            <div class="data-list">
+                {% if data.get('vulnerabilities') %}
+                    {% for vuln in data.vulnerabilities %}
+                    <div class="list-item vuln-item {{ vuln.get('severity', 'info') | lower }}">
+                        <div class="vuln-title">
+                            <span>{{ vuln.get('type', 'Unclassified Finding') }}</span>
+                            <span class="vuln-badge {{ vuln.get('severity', 'info') | lower }}">{{ vuln.get('severity', 'INFO') }}</span>
+                        </div>
+                        
+                        <div class="vuln-detail-group">
+                            <span class="vuln-label">Endpoint / URL</span>
+                            <a href="{{ vuln.get('url', '#') }}" class="vuln-url" target="_blank">{{ vuln.get('url', 'N/A') }}</a>
+                        </div>
+
+                        <div class="vuln-detail-group">
+                            <span class="vuln-label">Description & Evidence</span>
+                            <div class="vuln-value">
+                                {% if vuln.get('description') %} {{ vuln.description }} <br>{% endif %}
+                                {% if vuln.get('detail') %} {{ vuln.detail }} <br>{% endif %}
+                                {% if not vuln.get('description') and not vuln.get('detail') %} No additional details provided by scanner module. {% endif %}
+                            </div>
+                        </div>
+
+                        {% if vuln.get('remediation') %}
+                        <div class="vuln-detail-group" style="margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--border2);">
+                            <span class="vuln-label" style="color: var(--green);">Remediation Guidance</span>
+                            <div class="vuln-value">{{ vuln.remediation }}</div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="empty-state">No vulnerabilities detected on target infrastructure.</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Discovered Subdomains</div>
+            <div class="data-list">
+                {% if data.get('subdomains') %}
+                    {% for sub in data.subdomains %}
+                    <div class="list-item"><span style="color: var(--text3); font-weight:bold; margin-right: 8px;">↳</span> {{ sub }}</div>
+                    {% endfor %}
+                {% else %}
+                    <div class="empty-state">No associated subdomains found.</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    <div class="dashboard-grid">
+        <div class="card col-span-3">
+            <div class="card-header">Detailed Crawled Paths</div>
+            <div class="data-list">
+                {% if data.get('crawler') %}
+                    {% for path in data.crawler %}
+                    <div class="list-item" style="font-family: var(--font-mono); font-size: 13px; display: flex; align-items: center;">
+                        <span style="color: var(--accent); margin-right: 12px; font-weight: bold;">[GET]</span> 
+                        {% set url_string = path if path is string else path.get('url', path) %}
+                        <a href="{{ url_string }}" target="_blank" style="color: var(--text); text-decoration: none; word-break: break-all;">{{ url_string }}</a>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="empty-state">No URLs were crawled or discovered during mapping.</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
