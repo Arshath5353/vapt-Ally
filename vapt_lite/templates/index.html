@@ -64,13 +64,14 @@
         @keyframes load { 0% { width: 10%; } 100% { width: 90%; } }
 
         .error-banner { background: rgba(255, 77, 77, 0.1); border: 1px solid var(--red); color: var(--red); padding: 16px; border-radius: 8px; margin-top: 24px; font-size: 13px; text-align: left; display: none; }
+        .nav-links{display:flex;gap:20px;color:var(--text2);font-size:11px}.nav-links span:hover{color:var(--accent)}.scan-card{background:linear-gradient(135deg,rgba(30,33,43,.95),rgba(10,18,29,.9));box-shadow:0 0 0 1px rgba(0,229,255,.08),0 25px 80px rgba(0,0,0,.5)}.scan-btn{background:linear-gradient(135deg,var(--accent),#00e676);box-shadow:0 0 25px rgba(0,229,255,.35)}.phase{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:11px}.phase b{color:var(--accent);font-weight:500}.metric-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:680px;width:100%;margin-top:22px}.metric{padding:14px;background:rgba(18,20,29,.7);border:1px solid var(--border);border-radius:9px;text-align:left}.metric strong{display:block;font-size:20px;color:#fff;margin-top:6px}.metric span{font-size:10px;color:var(--text3);text-transform:uppercase}@media(max-width:700px){.nav-links{display:none}.metric-strip{grid-template-columns:repeat(2,1fr)}}
     </style>
 </head>
 <body>
 <div class="page-wrap">
     <nav>
         <div class="nav-brand"><span class="icon">⬡</span> VAPT Ally</div>
-        <div class="nav-status"><div class="dot"></div> Engine Online</div>
+        <div class="nav-links"><span>Dashboard</span><span>Threat Intelligence</span><span>Assets</span><span>Reports</span><span>History</span></div><div class="nav-status"><div class="dot"></div> Engine Online</div>
     </nav>
 
     <section class="hero">
@@ -92,10 +93,12 @@
             <div id="loading">
                 <div class="loading-text">Analyzing target surface area... (This may take several minutes)</div>
                 <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div id="phases"></div>
             </div>
 
             <div id="errorBox" class="error-banner"></div>
         </div>
+        <div class="metric-strip"><div class="metric"><span>Current Scan</span><strong>--</strong></div><div class="metric"><span>Scan Duration</span><strong>--</strong></div><div class="metric"><span>Pages Crawled</span><strong>--</strong></div><div class="metric"><span>Open Ports</span><strong>--</strong></div></div>
     </section>
 </div>
 
@@ -113,12 +116,15 @@
 
     // Handle form asynchronously to prevent browser freeze/timeout behavior
     const form = document.getElementById('scanForm');
+    const phases=['Reconnaissance','Crawler','Technology Detection','Subdomain Enumeration','Port Scan','Header Analysis','Injection Checks','Risk Engine','PDF Generation'];
     form.addEventListener('submit', function(e) {
         e.preventDefault(); 
         
         document.getElementById('scanBtn').style.display = 'none';
         document.getElementById('loading').style.display = 'block';
         document.getElementById('errorBox').style.display = 'none';
+        document.getElementById('phases').innerHTML=phases.map((p,i)=>`<div class="phase"><span>${p}</span><b id="phase${i}">QUEUED</b></div>`).join('');
+        let current=0; const phaseTimer=setInterval(()=>{if(current<phases.length){document.getElementById(`phase${current++}`).textContent='RUNNING'}else clearInterval(phaseTimer)},900);
 
         fetch('/scan', {
             method: 'POST',

@@ -1,48 +1,86 @@
+"""In-scope, evidence-preserving application crawler for authorised assessments."""
+import re
+from collections import deque
+from urllib.parse import parse_qsl, urlencode, urljoin, urlparse, urlunparse
+
 import requests
 from bs4 import BeautifulSoup
-from urllib.parse import urljoin, urlparse
 
-def crawl_website(start_url, max_pages=15):
-    """Crawls to find internal paths and returns a flat list of URLs."""
-    
-    if not start_url.startswith("http"):
-        start_url = "http://" + start_url
-        
-    visited = []
-    urls_to_visit = [start_url]
-    
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-        'Accept-Language': 'en-US,en;q=0.5'
-    }
-    
-    domain = urlparse(start_url).netloc
-    
-    while urls_to_visit and len(visited) < max_pages:
-        current_url = urls_to_visit.pop(0)
-        
-        if current_url in visited:
-            continue
-            
+USER_AGENT = "VAPT-Ally/1.1 authorised-assessment"
+JS_URL = re.compile(r"(?:fetch|axios\.(?:get|post)|XMLHttpRequest)\s*\(?\s*['\"]([^'\"\s]{1,512})", re.I)
+
+
+def normalise_url(url: str) -> str:
+    parsed = urlparse(url)
+    path = parsed.path or "/"
+    query = urlencode(sorted(parse_qsl(parsed.query, keep_blank_values=True)))
+    return urlunparse((parsed.scheme.lower(), parsed.netloc.lower(), path, "", query, ""))
+
+
+def same_origin(candidate: str, origin: str) -> bool:
+    return urlparse(candidate).netloc.lower() == urlparse(origin).netloc.lower()
+
+
+def crawl_website(start_url: str, max_pages: int = 30, max_depth: int = 3) -> list[str]:
+    """Discover normalised, same-origin HTTP endpoints without brute forcing paths."""
+    if not start_url.startswith(("http://", "https://")):
+        start_url = "https://" + start_url
+    start_url = normalise_url(start_url)
+    session = requests.Session()
+    session.headers.update({"User-Agent": USER_AGENT, "Accept": "text/html,application/xhtml+xml"})
+    queue, visited = deque([(start_url, 0)]), []
+    queued = {start_url}
+
+    def add(url: str, depth: int) -> None:
+        if len(queued) >= max_pages * 4 or depth > max_depth:
+            return
+        candidate = normalise_url(url)
+        if candidate.startswith(("http://", "https://")) and same_origin(candidate, start_url) and candidate not in queued:
+            queued.add(candidate); queue.append((candidate, depth))
+
+    # Passive discovery documents are part of the application surface.
+    for path in ("/robots.txt", "/sitemap.xml", "/swagger.json", "/openapi.json"):
+        add(urljoin(start_url, path), 0)
+
+    while queue and len(visited) < max_pages:
+        current, depth = queue.popleft()
         try:
-            response = requests.get(current_url, headers=headers, timeout=5, allow_redirects=True)
-            visited.append(current_url) 
-            
-            if response.status_code != 200:
+            response = session.get(current, timeout=(4, 12), allow_redirects=True)
+            final_url = normalise_url(str(response.url))
+            if not same_origin(final_url, start_url):
                 continue
-                
-            soup = BeautifulSoup(response.text, 'html.parser')
-            
-            for a_tag in soup.find_all('a', href=True):
-                href = a_tag['href']
-                full_url = urljoin(current_url, href)
-                
-                if full_url.startswith('http') and domain in full_url:
-                    if full_url not in visited and full_url not in urls_to_visit:
-                        urls_to_visit.append(full_url)
-                        
-        except Exception:
-            # Drop the URL immediately on timeout or error
+            if final_url not in visited:
+                visited.append(final_url)
+            content_type = response.headers.get("content-type", "").lower()
+            text = response.text[:2_000_000]
+            if "xml" in content_type or current.endswith("sitemap.xml"):
+                # Use the built-in parser so sitemap discovery never depends on lxml.
+                soup = BeautifulSoup(text, "html.parser")
+                for loc in soup.find_all("loc"):
+                    add(loc.get_text(strip=True), depth + 1)
+                continue
+            if current.endswith("robots.txt"):
+                for line in text.splitlines():
+                    if line.lower().startswith("sitemap:"):
+                        add(line.split(":", 1)[1].strip(), depth + 1)
+                continue
+            if "html" not in content_type:
+                continue
+            soup = BeautifulSoup(text, "html.parser")
+            canonical = soup.find("link", rel=lambda value: value and "canonical" in value.lower())
+            if canonical and canonical.get("href"):
+                add(urljoin(final_url, canonical["href"]), depth + 1)
+            for tag in soup.find_all(["a", "form", "iframe", "script"]):
+                reference = tag.get("href") or tag.get("action") or tag.get("src")
+                if reference:
+                    add(urljoin(final_url, reference), depth + 1)
+            for script in soup.find_all("script", src=True):
+                try:
+                    source = session.get(urljoin(final_url, script["src"]), timeout=(4, 10)).text
+                    for endpoint in JS_URL.findall(source):
+                        add(urljoin(final_url, endpoint), depth + 1)
+                except requests.RequestException:
+                    continue
+        except requests.RequestException:
             continue
-            
     return visited

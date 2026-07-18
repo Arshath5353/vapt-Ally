@@ -61,7 +61,9 @@ async def scan_secrets_and_headers(session, url, vulns):
             if header not in headers_lower:
                 vulns.append({
                     "type": v_type, "severity": sev, "url": url,
-                    "description": desc, "remediation": rem
+                    "description": desc, "remediation": rem,
+                    "evidence": f"GET {url} returned {status}; response header '{header}' was absent.",
+                    "confidence": "Firm"
                 })
 
     if text:
@@ -225,7 +227,7 @@ async def hunt_admin_panels(session, url, vulns):
                     "remediation": "Immediately change default administrative passwords and enforce a strong password policy."
                 })
 
-async def run_async_engine(url, vulns):
+async def run_async_engine(url, vulns, discovered_urls=None):
     async with aiohttp.ClientSession() as session:
         await asyncio.gather(
             scan_secrets_and_headers(session, url, vulns),
@@ -234,6 +236,8 @@ async def run_async_engine(url, vulns):
             scan_url_parameters(session, url, vulns),
             hunt_admin_panels(session, url, vulns)
         )
+        pages = list(dict.fromkeys((discovered_urls or [])[:15]))
+        await asyncio.gather(*[asyncio.gather(scan_forms(session, page, vulns), scan_url_parameters(session, page, vulns)) for page in pages if page != url])
 
 # FEATURE 2: SSL/TLS CERTIFICATE CHECKER
 def check_ssl_certificate(url, vulns):
@@ -323,7 +327,7 @@ def detect_waf(url, vulns):
     except Exception:
         pass
 
-def scan_vulnerabilities(url):
+def scan_vulnerabilities(url, discovered_urls=None):
     vulns = []
     if not url.startswith("http"):
         url = "http://" + url
@@ -332,7 +336,7 @@ def scan_vulnerabilities(url):
 
     # Synchronous Scans (SSL, CVEs, WAF, and Nmap)
     check_ssl_certificate(url, vulns)
-    map_cves(url, vulns)
+    # Do not report CVEs from a product name alone. Version-verified CVE mapping is a separate module.
     detect_waf(url, vulns) # Firing the new WAF scanner
 
     try:
@@ -350,6 +354,6 @@ def scan_vulnerabilities(url):
         print(f"Nmap Error: {e}")
 
     # Fire the Asynchronous Scanning Engine
-    asyncio.run(run_async_engine(url, vulns))
+    asyncio.run(run_async_engine(url, vulns, discovered_urls))
 
     return vulns

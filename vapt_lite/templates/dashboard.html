@@ -79,6 +79,7 @@
         .kv-val { color: var(--text); text-align: right; word-break: break-all; max-width: 60%; font-weight: 500; }
         
         .empty-state { text-align: center; color: var(--text3); padding: 40px 0; font-style: italic; font-size: 14px; }
+        .evidence-btn{margin-top:10px;background:rgba(0,229,255,.1);border:1px solid var(--accent);color:var(--accent);padding:7px 12px;border-radius:5px;cursor:pointer;font-family:var(--font-mono);font-size:11px}.evidence-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:20;padding:7vh 20px}.evidence-panel{max-width:850px;max-height:80vh;overflow:auto;margin:auto;background:var(--surface);border:1px solid var(--accent);border-radius:12px;padding:28px;box-shadow:0 0 50px rgba(0,229,255,.18)}.evidence-panel h2{color:#fff;margin:0 0 18px}.evidence-close{float:right;background:transparent;color:var(--text2);font-size:22px;padding:0}.evidence-block{background:var(--bg2);border:1px solid var(--border);border-radius:7px;padding:14px;margin-top:12px;white-space:pre-wrap;word-break:break-word;color:var(--text2);font-size:12px;line-height:1.6}.evidence-label{color:var(--accent);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
     </style>
 </head>
 <body>
@@ -123,6 +124,12 @@
     </div>
 
     <div class="dashboard-grid">
+        {% if data.get('ai_summary') %}
+        <div class="card col-span-3" style="border-color:var(--accent);">
+            <div class="card-header" style="color:var(--accent);">AI SECURITY ANALYST</div>
+            <div class="vuln-value" style="white-space:pre-wrap;line-height:1.8;">{{ data.ai_summary }}</div>
+        </div>
+        {% endif %}
         <div class="card">
             <div class="card-header">Overall Risk Posture</div>
             <div class="risk-display">
@@ -184,6 +191,11 @@
                             <span class="vuln-label">Endpoint / URL</span>
                             <a href="{{ vuln.get('url', '#') }}" class="vuln-url" target="_blank">{{ vuln.get('url', 'N/A') }}</a>
                         </div>
+                        <div class="vuln-detail-group">
+                            <span class="vuln-label">Evidence & Classification</span>
+                            <div class="vuln-value">{{ vuln.get('evidence', 'No additional evidence recorded.') }}<br>
+                            Confidence: {{ vuln.get('confidence', 'Unrated') }}{% if vuln.get('cwe') %} · {{ vuln.cwe }}{% endif %}{% if vuln.get('owasp') %} · {{ vuln.owasp }}{% endif %}{% if vuln.get('mitre') %} · MITRE {{ vuln.mitre }}{% endif %}</div>
+                        </div>
 
                         <div class="vuln-detail-group">
                             <span class="vuln-label">Description & Evidence</span>
@@ -200,6 +212,7 @@
                             <div class="vuln-value">{{ vuln.remediation }}</div>
                         </div>
                         {% endif %}
+                        <button class="evidence-btn" onclick='showEvidence({{ vuln|tojson }})'>VIEW EVIDENCE</button>
 
                     </div>
                     {% endfor %}
@@ -242,6 +255,11 @@
         </div>
     </div>
 </div>
+<div id="evidenceModal" class="evidence-modal" onclick="if(event.target===this)closeEvidence()"><div class="evidence-panel"><button class="evidence-close" onclick="closeEvidence()">×</button><h2 id="evTitle"></h2><div id="evBody"></div></div></div>
+<script>
+function showEvidence(f){document.getElementById('evTitle').textContent=f.type||'Finding';const blocks=[['SEVERITY / CONFIDENCE',(f.severity||'Unrated')+' / '+(f.confidence||'Unrated')],['REQUEST',(f.request||('GET '+(f.url||'Unknown')))],['RESPONSE / EVIDENCE',(f.response||f.evidence||f.description||'No evidence recorded.')],['CLASSIFICATION',[f.owasp,f.cwe,f.mitre].filter(Boolean).join(' · ')||'Not mapped'],['REMEDIATION',f.remediation||'No remediation recorded.']];document.getElementById('evBody').innerHTML=blocks.map(b=>`<div class="evidence-label">${b[0]}</div><div class="evidence-block">${escapeHtml(String(b[1]))}</div>`).join('');document.getElementById('evidenceModal').style.display='block'}
+function closeEvidence(){document.getElementById('evidenceModal').style.display='none'}function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
+</script>
 
 </body>
 </html>

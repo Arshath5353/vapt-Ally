@@ -12,6 +12,8 @@ from modules.crawler import crawl_website
 from modules.scanner import scan_vulnerabilities
 from modules.risk import calculate_risk
 from modules.pdf_gen import generate_pdf
+from modules.history_db import initialise as initialise_history_db, load as load_history_db, save as save_history_db
+from modules.ai_analyst import generate_summary
 
 app = Flask(__name__)
 
@@ -26,14 +28,19 @@ app.secret_key = os.getenv("SECRET_KEY", "dev_key_change_this")
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 RESULTS_FILE = os.path.join(BASE_DIR, 'scan_results.json')
 REPORTS_DIR = os.path.join(BASE_DIR, 'reports')
+HISTORY_DB = os.path.join(BASE_DIR, 'scan_history.db')
 
 # Ensure reports directory exists immediately
 os.makedirs(REPORTS_DIR, exist_ok=True)
+initialise_history_db(HISTORY_DB)
 
 # =========================
 # 📂 Load Scan History
 # =========================
 def load_history():
+    stored = load_history_db(HISTORY_DB)
+    if stored:
+        return stored
     if os.path.exists(RESULTS_FILE):
         try:
             with open(RESULTS_FILE, 'r') as f:
@@ -50,10 +57,42 @@ def save_results(data):
     history = load_history()
     history.append(data)
     try:
+        for scan in history:
+            save_history_db(HISTORY_DB, scan)
         with open(RESULTS_FILE, 'w') as f:
             json.dump(history, f, indent=4)
     except Exception as e:
         print("Error saving results:", e)
+
+def enrich_findings(findings):
+    """Add only evidence we actually observed; never manufacture a payload or confidence."""
+    mappings = {
+        "xss": ("CWE-79", "OWASP A03:2021 - Injection", "T1190", "Payload reflected by the response."),
+        "sql": ("CWE-89", "OWASP A03:2021 - Injection", "T1190", "Database error signature observed after input injection."),
+        "header": ("CWE-693", "OWASP A05:2021 - Security Misconfiguration", None, "Required HTTP response header was absent."),
+        "clickjacking": ("CWE-1021", "OWASP A05:2021 - Security Misconfiguration", None, "Frame protection header was absent."),
+    }
+    for finding in findings:
+        label = finding.get("type", "").lower()
+        for key, (cwe, owasp, mitre, evidence) in mappings.items():
+            if key in label:
+                finding.setdefault("cwe", cwe); finding.setdefault("owasp", owasp)
+                if mitre: finding.setdefault("mitre", mitre)
+                finding.setdefault("evidence", evidence)
+                finding.setdefault("confidence", "High" if key in {"xss", "sql"} else "Firm")
+                break
+    return findings
+
+def deduplicate_findings(findings):
+    """Collapse repeated infrastructure findings while preserving one evidence-bearing result."""
+    unique, seen = [], set()
+    domain_level = ("missing hsts", "missing csp", "clickjacking", "missing mime")
+    for finding in findings:
+        finding_type = finding.get("type", "").lower()
+        key = finding_type if any(marker in finding_type for marker in domain_level) else f"{finding_type}|{finding.get('url', '')}"
+        if key not in seen:
+            seen.add(key); unique.append(finding)
+    return unique
 
 # =========================
 # 🏠 Home Page
@@ -75,13 +114,14 @@ def scan():
 
     # ✅ BULLETPROOF REGEX URL SANITIZATION
     # 1. Aggressively strip ALL protocols (http://, https://, or nested combinations)
-    clean_url = re.sub(r'^(?:https?://)+', '', raw_url.lower())
+    supplied = raw_url if re.match(r'^https?://', raw_url, re.I) else f'https://{raw_url}'
+    clean_url = re.sub(r'^(?:https?://)+', '', supplied, flags=re.I)
     
     # 2. Extract JUST the domain (removes paths like /login and ports like :8080)
     domain = clean_url.split('/')[0].split(':')[0]
     
     # 3. Build the final clean target URL
-    target_url = 'http://' + domain
+    target_url = supplied.rstrip('/')
 
     # 4. Strip 'www.' to get the root domain so subdomains resolve correctly
     root_domain = domain[4:] if domain.startswith('www.') else domain
@@ -92,8 +132,9 @@ def scan():
         # =========================
         recon_data = perform_recon(target_url) or {}
         crawl_data = crawl_website(target_url) or []
-        vuln_data = scan_vulnerabilities(target_url) or []
+        vuln_data = scan_vulnerabilities(target_url, crawl_data) or []
         subdomain_data = find_subdomains(root_domain) or []
+        vuln_data = deduplicate_findings(enrich_findings(vuln_data))
 
         # =========================
         # 🧠 Risk Calculation
@@ -121,8 +162,11 @@ def scan():
                 "score": risk_score,
                 "level": risk_level,
                 "counts": severity_counts
-            }
+            },
+            "ai_summary": None
         }
+        # Optional: a Gemini failure never invalidates a completed scan.
+        scan_results["ai_summary"] = generate_summary(scan_results)
 
         # Save & Store Results
         save_results(scan_results)

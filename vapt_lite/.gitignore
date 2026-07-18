@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+.venv/
+venv/
+
+# Environment variables
+.env
+
+# Database
+*.db
+*.sqlite3
+
+# Reports
+reports/
+
+# Scan output
+scan_results.json
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
